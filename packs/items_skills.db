@@ -1,8 +1,8 @@
 {
-  "_id": "",
+  "_id": "skill_001",
   "name": "Archaeology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/archaeology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/archaeology.png",
   "system": {
     "description": "<p>Ancient cultures and artifacts.</p>",
     "rank": "Trained",
@@ -22,10 +22,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_002",
   "name": "Art",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/art.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/art.png",
   "system": {
     "description": "<p>The expression or application of a species’ creative ability and imagination.</p>",
     "rank": "Trained",
@@ -45,10 +45,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_003",
   "name": "Athletics",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/athletics.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/athletics.png",
   "system": {
     "description": "<p>Physical fitness, sports, and games.</p>",
     "rank": "Trained",
@@ -68,10 +68,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_004",
   "name": "Zoology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/zoology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/zoology.png",
   "system": {
     "description": "<p>The study of animal life.</p>",
     "rank": "Trained",
@@ -91,10 +91,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_005",
   "name": "Botany",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/botany.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/botany.png",
   "system": {
     "description": "<p>The study of plant life.</p>",
     "rank": "Trained",
@@ -114,10 +114,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_006",
   "name": "Chemistry",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/chemistry.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/chemistry.png",
   "system": {
     "description": "<p>The study of matter and its chemical elements and compounds.</p>",
     "rank": "Trained",
@@ -137,10 +137,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_007",
   "name": "Computers",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/computers.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/computers.png",
   "system": {
     "description": "<p>Fluent use of computers and their networks.</p>",
     "rank": "Trained",
@@ -160,10 +160,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_008",
   "name": "Geology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/geology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/geology.png",
   "system": {
     "description": "<p>The study of the solid features of any terrestrial planet or its satellites.</p>",
     "rank": "Trained",
@@ -183,10 +183,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_009",
   "name": "Industrial Equipment",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/industrial_equipment.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/industrial_equipment.png",
   "system": {
     "description": "<p>The safe and proper use of heavy machinery and tools (exosuits, forklifts, drills, breakers, laser</p>",
     "rank": "Trained",
@@ -206,10 +206,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_010",
   "name": "Jury-Rigging",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/jury_rigging.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/jury_rigging.png",
   "system": {
     "description": "<p>Makeshift repair, using only the tools and materials at hand.</p>",
     "rank": "Trained",
@@ -229,10 +229,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_011",
   "name": "Linguistics",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/linguistics.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/linguistics.png",
   "system": {
     "description": "<p>The study of languages (alive, dead, and undiscovered).</p>",
     "rank": "Trained",
@@ -252,10 +252,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_012",
   "name": "Mathematics",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/mathematics.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/mathematics.png",
   "system": {
     "description": "<p>The study of numbers, quantity, and space.</p>",
     "rank": "Trained",
@@ -275,10 +275,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_013",
   "name": "Military Training",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/military_training.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/military_training.png",
   "system": {
     "description": "<p>Basic training provided to all military personnel.</p>",
     "rank": "Trained",
@@ -298,10 +298,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_014",
   "name": "Rimwise",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/rimwise.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/rimwise.png",
   "system": {
     "description": "<p>Practical knowledge and know-how regarding outer rim colonies, their customs, and the seedier parts</p>",
     "rank": "Trained",
@@ -321,10 +321,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_015",
   "name": "Theology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/theology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/theology.png",
   "system": {
     "description": "<p>The study of the divine or devotion to a religion.</p>",
     "rank": "Trained",
@@ -344,10 +344,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_016",
   "name": "Zero-G",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/zero_g.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/zero_g.png",
   "system": {
     "description": "<p>Practice and know-how of working in a vacuum, orientation, vaccsuit operation, etc.</p>",
     "rank": "Trained",
@@ -367,10 +367,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_017",
   "name": "Asteroid Mining",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/asteroid_mining.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/asteroid_mining.png",
   "system": {
     "description": "<p>Training in the tools and procedures used for mining asteroids.</p>",
     "rank": "Expert",
@@ -390,10 +390,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_018",
   "name": "Ecology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/ecology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/ecology.png",
   "system": {
     "description": "<p>The study of organisms and how they relate to their environment.</p>",
     "rank": "Expert",
@@ -413,10 +413,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_019",
   "name": "Explosives",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/explosives.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/explosives.png",
   "system": {
     "description": "<p>Design and effective use of explosive devices (bombs, grenade, shells, land mines, etc.).</p>",
     "rank": "Expert",
@@ -436,10 +436,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_020",
   "name": "Field Medicine",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/field_medicine.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/field_medicine.png",
   "system": {
     "description": "<p>Emergency medical care and treatment.</p>",
     "rank": "Expert",
@@ -459,10 +459,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_021",
   "name": "Firearms",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/firearms.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/firearms.png",
   "system": {
     "description": "<p>Safe and effective use of guns.</p>",
     "rank": "Expert",
@@ -482,10 +482,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_022",
   "name": "Hacking",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/hacking.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/hacking.png",
   "system": {
     "description": "<p>Unauthorized access to computer systems and networks.</p>",
     "rank": "Expert",
@@ -505,10 +505,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_023",
   "name": "Hand-to-Hand Combat",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/hand_to_hand_combat.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/hand_to_hand_combat.png",
   "system": {
     "description": "<p>Melee fighting.</p>",
     "rank": "Expert",
@@ -528,10 +528,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_024",
   "name": "Mechanical Repair",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/mechanical_repair.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/mechanical_repair.png",
   "system": {
     "description": "<p>Fixing broken machines.</p>",
     "rank": "Expert",
@@ -551,10 +551,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_025",
   "name": "Mysticism",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/mysticism.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/mysticism.png",
   "system": {
     "description": "<p>Spiritual apprehension of hidden knowledge.</p>",
     "rank": "Expert",
@@ -574,10 +574,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_026",
   "name": "Pathology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/pathology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/pathology.png",
   "system": {
     "description": "<p>Study of the causes and effects of diseases.</p>",
     "rank": "Expert",
@@ -597,10 +597,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_027",
   "name": "Pharmacology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/pharmacology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/pharmacology.png",
   "system": {
     "description": "<p>Study of drugs and medication.</p>",
     "rank": "Expert",
@@ -620,10 +620,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_028",
   "name": "Physics",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/physics.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/physics.png",
   "system": {
     "description": "<p>Study of matter, motion, energy, and their effects in space and time.</p>",
     "rank": "Expert",
@@ -643,10 +643,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_029",
   "name": "Piloting",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/piloting.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/piloting.png",
   "system": {
     "description": "<p>Operation and control of aircraft, spacecraft, and other vehicles.</p>",
     "rank": "Expert",
@@ -666,10 +666,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_030",
   "name": "Psychology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/psychology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/psychology.png",
   "system": {
     "description": "<p>The study of behavior and the human mind.</p>",
     "rank": "Expert",
@@ -689,10 +689,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_031",
   "name": "Tactics",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/tactics.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/tactics.png",
   "system": {
     "description": "<p>Maneuvering military forces in battle.</p>",
     "rank": "Expert",
@@ -712,10 +712,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_032",
   "name": "Wilderness Survival",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/wilderness_survival.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/wilderness_survival.png",
   "system": {
     "description": "<p>Applicable know-how regarding the basic necessities of life (food, water, shelter) in a natural env</p>",
     "rank": "Expert",
@@ -735,10 +735,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_033",
   "name": "Artificial Intelligence",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/artificial_intelligence.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/artificial_intelligence.png",
   "system": {
     "description": "<p>The study of intelligence as demonstrated by machines.</p>",
     "rank": "Master",
@@ -758,10 +758,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_034",
   "name": "Command",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/command.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/command.png",
   "system": {
     "description": "<p>Leadership, management, and authority.</p>",
     "rank": "Master",
@@ -781,10 +781,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_035",
   "name": "Cybernetics",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/cybernetics.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/cybernetics.png",
   "system": {
     "description": "<p>The physical and neural interfaces between organisms and machines.</p>",
     "rank": "Master",
@@ -804,10 +804,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_036",
   "name": "Engineering",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/engineering.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/engineering.png",
   "system": {
     "description": "<p>The design, building, and use of engines, machines, and structures.</p>",
     "rank": "Master",
@@ -827,10 +827,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_037",
   "name": "Exobiology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/exobiology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/exobiology.png",
   "system": {
     "description": "<p>The study of and search for intelligent alien life.</p>",
     "rank": "Master",
@@ -850,10 +850,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_038",
   "name": "Hyperspace",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/hyperspace.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/hyperspace.png",
   "system": {
     "description": "<p>Faster-than-light travel.</p>",
     "rank": "Master",
@@ -873,10 +873,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_039",
   "name": "Planetology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/planetology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/planetology.png",
   "system": {
     "description": "<p>Study of planets and other celestial bodies.</p>",
     "rank": "Master",
@@ -896,10 +896,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_040",
   "name": "Robotics",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/robotics.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/robotics.png",
   "system": {
     "description": "<p>Design, maintenance, and operation of robots, drones, and androids.</p>",
     "rank": "Master",
@@ -919,10 +919,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_041",
   "name": "Sophontology",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/sophontology.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/sophontology.png",
   "system": {
     "description": "<p>The study of the behavior and mind of inhuman entities.</p>",
     "rank": "Master",
@@ -942,10 +942,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_042",
   "name": "Surgery",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/surgery.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/surgery.png",
   "system": {
     "description": "<p>Manually operating on living or dead biological subjects.</p>",
     "rank": "Master",
@@ -965,10 +965,10 @@
   }
 }
 {
-  "_id": "",
+  "_id": "skill_043",
   "name": "Xenoesotericism",
   "type": "skill",
-  "img": "modules/mosh-extended/icons/skills/xenoesotericism.png",
+  "img": "modules/fvtt_mosh_1e_psg/icons/skills/xenoesotericism.png",
   "system": {
     "description": "<p>Obscure beliefs, mysticism, and religion regarding non-human entities.</p>",
     "rank": "Master",
