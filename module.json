@@ -2,20 +2,20 @@
     "id": "fvtt_mosh_1e_psg",
     "title": "Mothership 1e Compendium - PSG",
     "description": "A compendium covering everything in the Player's Survival Guide",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "compatibility": {
       "minimum": "10",
       "verified": "11.300"
     },
     "packs": [
       {
-        "label": "Skills",
+        "label": "PSG Skills",
         "type": "Item",
         "name": "items_skills",
         "path": "packs/items_skills.db"
       },
       {
-        "label": "Armors",
+        "label": "PSG Armors",
         "type": "Item",
         "name": "items_armors",
         "path": "packs/items_armors.db"
