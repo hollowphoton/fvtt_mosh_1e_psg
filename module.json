@@ -19,6 +19,12 @@
         "type": "Item",
         "name": "items_armors",
         "path": "packs/items_armors.db"
+      },
+      {
+        "label": "PSG Weapons",
+        "type": "Item",
+        "name": "items_weapons",
+        "path": "packs/items_weapons.db"
       }
     ],
     "relationships": {
