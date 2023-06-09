@@ -1,106 +1,24 @@
 {
-    "id": "mothership-compendium-psg-1e",
-    "title": "Mothership Compendium - PSG 1e",
-    "version": "1.0.0",
-    "compatibility": {
-      "minimum": "11",
-      "verified": "11"
-    },
-    "packs": [
-      {
-        "label": "Items",
-        "name": "items",
-        "type": "Item",
-        "system": "mosh",
-        "path": "packs/items",
-        "ownership": {
-          "PLAYER": "OBSERVER",
-          "ASSISTANT": "OWNER"
-        },
-        "flags": {}
-      },
-      {
-        "label": "Roll Tables",
-        "name": "rolltables",
-        "type": "RollTable",
-        "system": "mosh",
-        "path": "packs/rolltables",
-        "ownership": {
-          "PLAYER": "OBSERVER",
-          "ASSISTANT": "OWNER"
-        },
-        "flags": {}
-      },
-      {
-        "label": "Macros",
-        "name": "macros",
-        "type": "Macro",
-        "system": "mosh",
-        "path": "packs/macros",
-        "ownership": {
-          "PLAYER": "OBSERVER",
-          "ASSISTANT": "OWNER"
-        },
-        "flags": {}
-      }
-    ]
-  }
-
-
-
-{
-    "id": "mosh-extended",
-    "title": "Mothership RPG Extended",
-    "description": "More options",
-    "authors": [
-      {
-        "name": "JdR Ninja",
-        "url": "https://www.jdr.ninja/",
-        "discord": "JDR.Ninja#1552"
-      }
-    ],
-    "version": "0.1.0",
+    "id": "fvtt_mosh_1e_psg",
+    "title": "Mothership 1e Compendium - PSG",
+    "description": "A compendium covering everything in the Player's Survival Guide",
+    "version": "0.0.3",
     "compatibility": {
       "minimum": "10",
-      "verified": "10.291",
-      "maximum": "11"
+      "verified": "11.300"
     },
     "packs": [
       {
-        "label": "Mothership Conditions",
+        "label": "Skills",
         "type": "Item",
-        "name": "mosh-extended-conditions",
-        "path": "packs/mosh-extended-conditions.db"
+        "name": "items_skills",
+        "path": "packs/items_skills.db"
       },
       {
-        "label": "Mothership RollTables",
-        "type": "RollTable",
-        "name": "mosh-extended-rolltables",
-        "path": "packs/mosh-extended-rolltables.db"
-      },
-      {
-        "label": "Mothership Items",
+        "label": "Armors",
         "type": "Item",
-        "name": "mosh-extended-items",
-        "path": "packs/mosh-extended-items.db"
-      },
-      {
-        "label": "Mothership Weapons",
-        "type": "Item",
-        "name": "mosh-weapons",
-        "path": "packs/mosh-extended-weapons.db"
-      },
-      {
-        "label": "Mothership Skills",
-        "type": "Item",
-        "name": "mosh-skills",
-        "path": "packs/mosh-extended-skills.db"
-      },
-      {
-        "label": "Mothership Armors",
-        "type": "Item",
-        "name": "mosh-armors",
-        "path": "packs/mosh-extended-armors.db"
+        "name": "items_armors",
+        "path": "packs/items_armors.db"
       }
     ],
     "relationships": {
@@ -109,12 +27,12 @@
           "id": "mosh",
           "type": "system",
           "manifest": "https://raw.githubusercontent.com/Futil/foundry-mothership/master/system.json",
-          "compatibility": { "verified": "0.3.4" }
+          "compatibility": { "verified": "0.3.7" }
         }
       ]
     },
-    "url": "https://github.com/hollowphoton/foundryvtt-mosh-extended",
-    "download": "https://github.com/hollowphoton/foundryvtt-mosh-extended/releases/download/0.1.0/module.zip",
-    "manifest": "https://github.com/hollowphoton/foundryvtt-mosh-extended/releases/download/latest/module.json"
+    "url": "https://github.com/hollowphoton/fvtt_mosh_1e_psg",
+    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.0.3/fvtt_mosh_1e_psg.zip",
+    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.0.3/module.json"
   }
   
