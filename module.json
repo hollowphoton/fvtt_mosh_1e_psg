@@ -49,6 +49,12 @@
         "type": "Condition",
         "name": "conditions",
         "path": "packs/conditions.db"
+      },
+      {
+        "label": "PSG Rolltables",
+        "type": "RollTable",
+        "name": "rolltables",
+        "path": "packs/rolltables.db"
       }
     ],
     "relationships": {
