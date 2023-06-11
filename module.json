@@ -25,6 +25,30 @@
         "type": "Item",
         "name": "items_weapons",
         "path": "packs/items_weapons.db"
+      },
+      {
+        "label": "PSG Equipment",
+        "type": "Item",
+        "name": "items_equipment",
+        "path": "packs/items_equipment.db"
+      },
+      {
+        "label": "PSG Patches",
+        "type": "Item",
+        "name": "items_patches",
+        "path": "packs/items_patches.db"
+      },
+      {
+        "label": "PSG Trinkets",
+        "type": "Item",
+        "name": "items_trinkets",
+        "path": "packs/items_trinkets.db"
+      },
+      {
+        "label": "PSG Conditions",
+        "type": "Condition",
+        "name": "conditions",
+        "path": "packs/conditions.db"
       }
     ],
     "relationships": {
