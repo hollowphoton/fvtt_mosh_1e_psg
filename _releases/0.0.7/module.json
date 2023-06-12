@@ -1,0 +1,73 @@
+{
+    "id": "fvtt_mosh_1e_psg",
+    "title": "Mothership 1e Compendium - PSG",
+    "description": "A compendium covering everything in the Player's Survival Guide",
+    "version": "0.0.7",
+    "compatibility": {
+      "minimum": "10",
+      "verified": "11.300"
+    },
+    "packs": [
+      {
+        "label": "PSG Skills",
+        "type": "Item",
+        "name": "items_skills",
+        "path": "packs/items_skills.db"
+      },
+      {
+        "label": "PSG Armors",
+        "type": "Item",
+        "name": "items_armors",
+        "path": "packs/items_armors.db"
+      },
+      {
+        "label": "PSG Weapons",
+        "type": "Item",
+        "name": "items_weapons",
+        "path": "packs/items_weapons.db"
+      },
+      {
+        "label": "PSG Equipment",
+        "type": "Item",
+        "name": "items_equipment",
+        "path": "packs/items_equipment.db"
+      },
+      {
+        "label": "PSG Patches",
+        "type": "Item",
+        "name": "items_patches",
+        "path": "packs/items_patches.db"
+      },
+      {
+        "label": "PSG Trinkets",
+        "type": "Item",
+        "name": "items_trinkets",
+        "path": "packs/items_trinkets.db"
+      },
+      {
+        "label": "PSG Conditions",
+        "type": "Item",
+        "name": "conditions",
+        "path": "packs/conditions.db"
+      },
+      {
+        "label": "PSG Rolltables",
+        "type": "RollTable",
+        "name": "rolltables",
+        "path": "packs/rolltables.db"
+      }
+    ],
+    "relationships": {
+      "systems": [
+        {
+          "id": "mosh",
+          "type": "system",
+          "manifest": "https://raw.githubusercontent.com/Futil/foundry-mothership/master/system.json",
+          "compatibility": { "verified": "0.3.7" }
+        }
+      ]
+    },
+    "url": "https://github.com/hollowphoton/fvtt_mosh_1e_psg",
+    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.0.7/fvtt_mosh_1e_psg.zip",
+    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.0.7/module.json"
+  }
