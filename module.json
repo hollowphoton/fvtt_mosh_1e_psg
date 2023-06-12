@@ -2,7 +2,7 @@
     "id": "fvtt_mosh_1e_psg",
     "title": "Mothership 1e Compendium - PSG",
     "description": "A compendium covering everything in the Player's Survival Guide",
-    "version": "0.0.5",
+    "version": "0.0.7",
     "compatibility": {
       "minimum": "10",
       "verified": "11.300"
@@ -46,7 +46,7 @@
       },
       {
         "label": "PSG Conditions",
-        "type": "Condition",
+        "type": "Item",
         "name": "conditions",
         "path": "packs/conditions.db"
       },
@@ -68,6 +68,6 @@
       ]
     },
     "url": "https://github.com/hollowphoton/fvtt_mosh_1e_psg",
-    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/latest/fvtt_mosh_1e_psg.zip",
-    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/latest/module.json"
+    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.0.7/fvtt_mosh_1e_psg.zip",
+    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.0.7/module.json"
   }
