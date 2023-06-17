@@ -1,0 +1,91 @@
+{
+    "id": "fvtt_mosh_1e_psg",
+    "title": "Mothership 1e Compendium - PSG",
+    "description": "A compendium covering everything in the Player's Survival Guide",
+    "version": "0.0.8",
+    "compatibility": {
+      "minimum": "10",
+      "verified": "11.300"
+    },
+    "packs": [
+      {
+        "label": "Skills",
+        "type": "Item",
+        "name": "items_skills",
+        "path": "packs/items_skills.db"
+      },
+      {
+        "label": "Pet Skills",
+        "type": "Item",
+        "name": "items_pet_skills",
+        "path": "packs/items_pet_skills.db"
+      },
+      {
+        "label": "Armor",
+        "type": "Item",
+        "name": "items_armors",
+        "path": "packs/items_armors.db"
+      },
+      {
+        "label": "Weapons",
+        "type": "Item",
+        "name": "items_weapons",
+        "path": "packs/items_weapons.db"
+      },
+      {
+        "label": "Equipment",
+        "type": "Item",
+        "name": "items_equipment",
+        "path": "packs/items_equipment.db"
+      },
+      {
+        "label": "Patches",
+        "type": "Item",
+        "name": "items_patches",
+        "path": "packs/items_patches.db"
+      },
+      {
+        "label": "Trinkets",
+        "type": "Item",
+        "name": "items_trinkets",
+        "path": "packs/items_trinkets.db"
+      },
+      {
+        "label": "Conditions",
+        "type": "Item",
+        "name": "conditions",
+        "path": "packs/conditions.db"
+      },
+      {
+        "label": "Rolltables",
+        "type": "RollTable",
+        "name": "rolltables",
+        "path": "packs/rolltables.db"
+      },
+      {
+        "label": "Macros - Hotbar",
+        "type": "Macro",
+        "name": "macros_hotbar",
+        "path": "packs/macros_hotbar.db"
+      },
+      {
+        "label": "Macros - Triggered",
+        "type": "Macro",
+        "name": "macros_triggered",
+        "path": "packs/macros_triggered.db"
+      }
+    ],
+    "relationships": {
+      "systems": [
+        {
+          "id": "mosh",
+          "type": "system",
+          "manifest": "https://raw.githubusercontent.com/Futil/foundry-mothership/master/system.json",
+          "compatibility": { "verified": "0.3.7" }
+        }
+      ]
+    },
+    "url": "https://github.com/hollowphoton/fvtt_mosh_1e_psg",
+    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.0.8/fvtt_mosh_1e_psg.zip",
+    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.0.8/module.json"
+  }
