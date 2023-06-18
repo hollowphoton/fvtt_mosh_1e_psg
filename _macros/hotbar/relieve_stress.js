@@ -45,10 +45,8 @@ async function rollUnder(rollString) {
     stressMod = -2*onesValue;
   } else if (critical === "" && outcome === "Success") {
     stressMod = -1*onesValue;
-  } else if (critical === "" && outcome === "Failure") {
-    stressMod = 1;
   } else {
-    stressMod = 2;
+    stressMod = 1;
   }
 
   if (curStress + stressMod > 20) {
@@ -116,7 +114,7 @@ async function rollUnder(rollString) {
 
 new Dialog({
   title: "Gain Stress",
-  content: "<table><tbody><tr><td><img src=\"modules/fvtt_mosh_1e_psg/icons/macro/relieve_stress.png\"/></td><td><h4>&nbsp&nbsp</h4></td><td><h3>Relieve Stress</h3><p>You can relieve Stress by resting in a relatively safe place. If you succeed, reduce your Stress; <strong>if you fail, you gain 1 Stress instead.</strong> Players can gain Advantage on their Rest Save by participating in consensual sex, recreational drug use, a night of heavy drinking, prayer, or any other suitable leisure activity. Unsafe locations may incur Disadvantage.</p></td><td><h4>&nbsp&nbsp</h4></td></tr></tbody></table><h4>Select your roll type:</h4>",
+  content: "<table><tbody><tr><td><img src=\"modules/fvtt_mosh_1e_psg/icons/macros/relieve_stress.png\" width=\"700\" /></td><td><h4>&nbsp&nbsp</h4></td><td><h3>Relieve Stress</h3><p>You can relieve Stress by resting in a relatively safe place. If you succeed, reduce your Stress; <strong>if you fail, you gain 1 Stress instead.</strong> Players can gain Advantage on their Rest Save by participating in consensual sex, recreational drug use, a night of heavy drinking, prayer, or any other suitable leisure activity. Unsafe locations may incur Disadvantage.</p></td><td><h4>&nbsp&nbsp</h4></td></tr></tbody></table><h4>Select your roll type:</h4>",
   buttons: {
     button1: {
       label: "Advantage",

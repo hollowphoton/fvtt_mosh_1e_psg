@@ -66,7 +66,7 @@ async function addStress(rollString) {
 
 new Dialog({
   title: "Gain Stress",
-  content: "<table><tbody><tr><td><img src=\"modules/fvtt_mosh_1e_psg/icons/macro/gain_stress.png\"/></td><td><h4>&nbsp&nbsp</h4></td><td><h3>Gain Stress</h3><p><strong>You gain 1 Stress every time you fail a Stat Check or Save.</strong> Occasionally, certain locations or entities can automatically give you Stress from interacting with or witnessing them. Your <strong>Minimum Stress starts at 2</strong>, and the <strong>Maximum Stress you can have is 20.</strong> Any Stress you take over 20 instead reduces the most relevant Stat or Save by that amount.</p></td><td><h4>&nbsp&nbsp</h4></td></tr></tbody></table><h4>Select your modification:</h4>",
+  content: "<table><tbody><tr><td><img src=\"modules/fvtt_mosh_1e_psg/icons/macros/gain_stress.png\" width=\"700\" /></td><td><h4>&nbsp&nbsp</h4></td><td><h3>Gain Stress</h3><p><strong>You gain 1 Stress every time you fail a Stat Check or Save.</strong> Occasionally, certain locations or entities can automatically give you Stress from interacting with or witnessing them. Your <strong>Minimum Stress starts at 2</strong>, and the <strong>Maximum Stress you can have is 20.</strong> Any Stress you take over 20 instead reduces the most relevant Stat or Save by that amount.</p></td><td><h4>&nbsp&nbsp</h4></td></tr></tbody></table><h4>Select your modification:</h4>",
   buttons: {
     button1: {
       label: "Gain 1 Stress",
