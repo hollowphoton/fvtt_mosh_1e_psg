@@ -9,7 +9,7 @@
     },
     "packs": [
       {
-        "label": "Skills",
+        "label": "Player Skills",
         "type": "Item",
         "name": "items_skills",
         "path": "packs/items_skills.db"
