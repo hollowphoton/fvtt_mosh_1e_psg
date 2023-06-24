@@ -134,7 +134,7 @@ async function rollCheck(rollString) {
   <div class ="macro_window" style="margin-bottom : 7px;">
 	<div class="grid grid-2col" style="grid-template-columns: 150px auto">
 	  <div class="macro_img"><img src="modules/fvtt_mosh_1e_psg/icons/rolltables/panic_check.png" style="border:none"/></div>
-	  <div class="macro_desc"><h3>Panic Check</h3>Stress, Damage, and emotional wear and tear will eventually bring you to your breaking point. When that happens, there’s a chance you’ll Panic. You determine this by making a Panic Check. Some results of the Panic Table are so severe that they leave a lasting impression on you. These are called <strong>Conditions</strong>, and they affect you until you are able to treat them.</div>    
+	  <div class="macro_desc"><h3>Panic Check</h3>Stress, Damage, and emotional wear and tear will eventually bring you to your breaking point. When that happens, there’s a chance you’ll Panic. You determine this by making a <strong>Panic Check</strong>. Some results of the Panic Table are so severe that they leave a lasting impression on you. These are called <strong>Conditions</strong>, and they affect you until you are able to treat them.</div>    
 	</div>
   </div>
   
