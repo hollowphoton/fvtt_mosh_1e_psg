@@ -88,7 +88,11 @@ async function rollCheck(rollTable,rollString) {
       <div class="grid grid-3col" style="grid-template-columns: 20px 60px auto">
         <input type="radio" id="bf" name="wound_table" value="Blunt Force Wound" checked="checked">
         <div class="macro_img" style="padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;"><img src="modules/fvtt_mosh_1e_psg/icons/rolltables/wounds_blunt_force.png" style="border:none"/></div>
-        <div class="macro_desc" style="line-height:50px;"><strong>Blunt Force:</strong> Getting punched, hit with a crowbar or a thrown object, falling, etc.</div>    
+        <div class="macro_desc" style="display: table;">
+          <span style="display: table-cell; vertical-align: middle;">
+            <strong>Blunt Force:</strong> Getting punched, hit with a crowbar or a thrown object, falling, etc.
+          </span>
+        </div>
       </div>
     </div>
   </label>
@@ -97,7 +101,11 @@ async function rollCheck(rollTable,rollString) {
     <div class="grid grid-3col" style="grid-template-columns: 20px 60px auto">
       <input type="radio" id="b" name="wound_table" value="Bleeding Wound">
       <div class="macro_img" style="padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;"><img src="modules/fvtt_mosh_1e_psg/icons/rolltables/wounds_bleeding.png" style="border:none"/></div>
-      <div class="macro_desc" style="line-height:50px;"><strong>Bleeding:</strong> Getting stabbed or cut.</div>    
+      <div class="macro_desc" style="display: table;">
+        <span style="display: table-cell; vertical-align: middle;">
+          <strong>Bleeding:</strong> Getting stabbed or cut.
+        </span>
+      </div>
     </div>
   </div>
   </label>
@@ -106,7 +114,11 @@ async function rollCheck(rollTable,rollString) {
     <div class="grid grid-3col" style="grid-template-columns: 20px 60px auto">
       <input type="radio" id="g" name="wound_table" value="Gunshot Wound">
       <div class="macro_img" style="padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;"><img src="modules/fvtt_mosh_1e_psg/icons/rolltables/wounds_gunshot.png" style="border:none"/></div>
-      <div class="macro_desc" style="line-height:50px;"><strong>Gunshot:</strong> Getting shot by a firearm.</div>    
+      <div class="macro_desc" style="display: table;">
+        <span style="display: table-cell; vertical-align: middle;">
+          <strong>Gunshot:</strong> Getting shot by a firearm.
+        </span>
+      </div>
     </div>
   </div>
   </label>
@@ -115,7 +127,11 @@ async function rollCheck(rollTable,rollString) {
     <div class="grid grid-3col" style="grid-template-columns: 20px 60px auto">
       <input type="radio" id="fe" name="wound_table" value="Fire & Explosives Wound">
       <div class="macro_img" style="padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;"><img src="modules/fvtt_mosh_1e_psg/icons/rolltables/wounds_fire_&_explosives.png" style="border:none"/></div>
-      <div class="macro_desc" style="line-height:50px;"><strong>Fire & Explosives:</strong> Grenades, flamethrowers, doused in fuel and lit on fire, etc.</div>    
+      <div class="macro_desc" style="display: table;">
+        <span style="display: table-cell; vertical-align: middle;">
+          <strong>Fire & Explosives:</strong> Grenades, flamethrowers, doused in fuel and lit on fire, etc.
+        </span>
+      </div>
     </div>
   </div>
   </label>
@@ -124,7 +140,11 @@ async function rollCheck(rollTable,rollString) {
     <div class="grid grid-3col" style="grid-template-columns: 20px 60px auto">
       <input type="radio" id="gm" name="wound_table" value="Gore & Massive Wound">
       <div class="macro_img" style="padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;"><img src="modules/fvtt_mosh_1e_psg/icons/rolltables/wounds_gore_&_massive.png" style="border:none"/></div>
-      <div class="macro_desc" style="line-height:50px;"><strong>Gore & Massive:</strong> Damage from giant creatures or particularly gruesome foes.</div>    
+      <div class="macro_desc" style="display: table;">
+        <span style="display: table-cell; vertical-align: middle;">
+          <strong>Gore & Massive:</strong> Damage from giant creatures or particularly gruesome foes.
+        </span>
+      </div>
     </div>
   </div>
   </label>
