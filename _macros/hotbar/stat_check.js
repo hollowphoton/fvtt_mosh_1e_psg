@@ -20,23 +20,28 @@ async function rollCheck(addSkill,addPoints,rollStat,rollString) {
   //get stress
   curStress = game.user.character.system.other.stress.value;
   //get the value for the chosen stat
-  if (rollStat = `strength`) {
-    msgHeader = rollStat + ` check`;
+  if (rollStat === `strength`) {
     statName = `Strength`
-    statValue = game.user.character.system.stats.strength.value + addPoints;
-  } else if (rollStat = `speed`) {
+    msgHeader = rollStat + ` check`;
+    statValue = game.user.character.system.stats.strength.value + game.user.character.system.stats.strength.mod;
+  } else if (rollStat === `speed`) {
     statName = `Speed`
     msgHeader = rollStat + ` check`;
-    statValue = game.user.character.system.stats.speed.value + addPoints;
-  } else if (rollStat = `intellect`) {
+    statValue = game.user.character.system.stats.speed.value + game.user.character.system.stats.speed.mod;
+  } else if (rollStat === `intellect`) {
     statName = `Intellect`
     msgHeader = rollStat + ` check`;
-    statValue = game.user.character.system.stats.intellect.value + addPoints;
-  } else if (rollStat = `combat`) {
+    statValue = game.user.character.system.stats.intellect.value + game.user.character.system.stats.intellect.mod;
+  } else if (rollStat === `combat`) {
     statName = `Combat`
     msgHeader = rollStat + ` check`;
-    statValue = game.user.character.system.stats.combat.value + addPoints;
+    statValue = game.user.character.system.stats.combat.value + game.user.character.system.stats.combat.mod;
   }
+  //set addPoints to zero if null
+  if(addPoints === undefined) {addPoints = 0}
+  //set roll info
+  overUnder = `<i class="fas fa-angle-left"></i>`;
+  target = statValue + Number(addPoints);
   //prepare list of critical rolls
   doubles = new Set([0, 11, 22, 33, 44, 55, 66, 77, 88, 99]);
   //check for crit
@@ -48,10 +53,13 @@ async function rollCheck(addSkill,addPoints,rollStat,rollString) {
   //set result variables
   if (macroRoll.total >= 90) {
     outcome = "FAILURE";
-  } else if (macroRoll.total < statValue) {
+    position = 'higher';
+  } else if (macroRoll.total < target) {
     outcome = "SUCCESS";
+    position = 'lower';
   } else {
     outcome = "FAILURE";
+    position = 'higher';
   }
   //set stress mod
   if (outcome === "FAILURE") {
@@ -73,37 +81,33 @@ async function rollCheck(addSkill,addPoints,rollStat,rollString) {
     stressDiff = newStress - curStress;
     saveImpact = stressMod - stressDiff;
   }
+  //update characters stress level
+  game.user.character.update({'system.other.stress.value': newStress});
   //create stress flavor text
   if (addPoints > 0) {
     msgFlavor = `
     <div style="font-size: 1.1rem; margin-top : -10px; margin-bottom : 5px;">
       <strong>${critical}${outcome}!</strong>
     </div>
-    You attempt to roll lower than your ${statName} plus the ${addPoints} points from your ${addSkill} skill.<br>
+    You rolled ${position} than your <strong>${statName}</strong> plus <strong>${addSkill}</strong> skill bonus.<br>
     `;
   } else {
     msgFlavor = `
     <div style="font-size: 1.1rem; margin-top : -10px; margin-bottom : 5px;">
       <strong>${critical}${outcome}!</strong>
     </div>
-    You attempt to roll lower than your ${statName}.<br>
+    You rolled ${position} than your <strong>${statName}</strong>.<br>
     `;
   }
   //create chat variables
-  if (outcome = "FAILURE" && stressMod > 0 && newStress === 20 && stressDiff === 0) {
-    msgOutcome = `Stress increased from <strong>${curStress}</strong> to <strong>${newStress}</strong>.`;
-  } else if (outcome = "FAILURE" && stressMod > 0 && newStress === 20 && stressDiff === 0) {
-    msgOutcome = `You feel a part of yourself drift away. <strong>Reduce the most relevant Stat or Save by ${saveImpact}</strong>.`;
-  } else if (outcome = "FAILURE" && stressMod > 0 && newStress === 20 && stressDiff < stressMod) {
+  if (outcome === "SUCCESS") {
+    msgOutcome = `You gain some confidence in your skills.`;    
+  } else if (outcome === "FAILURE" && stressMod > 0 && newStress === 20 && stressDiff > 0) {
     msgOutcome = `You hit rock bottom. Stress increased from <strong>${curStress}</strong> to <strong>${newStress}</strong>. You must also <strong>reduce the most relevant Stat or Save by ${saveImpact}</strong>.`;
+  } else if (outcome === "FAILURE" && stressMod > 0 && newStress === 20 && stressDiff === 0) {
+    msgOutcome = `You feel a part of yourself drift away. <strong>Reduce the most relevant Stat or Save by ${saveImpact}</strong>.`;
   } else {
-    msgOutcome = `You gain some confidence in your skills.`;
-  }
-  //create chat variables
-  if (outcome = "SUCCESS") {
-    msgOutcome = `Frustratingly, you can't seem to relax. You still have a stress of <strong>${newStress}</strong>.`;
-  } else {
-    msgOutcome = `Stress ${change} from <strong>${curStress}</strong> to <strong>${newStress}</strong>.`;
+    msgOutcome = `Stress increased from <strong>${curStress}</strong> to <strong>${newStress}</strong>.`;
   }
   //create message if crit fail
   if (critical === "CRITICAL " && outcome === "FAILURE") {
@@ -111,9 +115,6 @@ async function rollCheck(addSkill,addPoints,rollStat,rollString) {
   } else {
     results_critfail = ``;
   }
-  //set roll info
-  overUnder = `<i class="fas fa-angle-left"></i>`;
-  target = statValue;
   //create chat message template
   macroResult = `
   <div class="mosh">
@@ -204,6 +205,8 @@ function addSkill(rollStat) {
   skillList = ``;
   //create skill counter
   skillCount = 0;
+  //create dialog pixel counter
+  dialogHeight = 192;
   //loop through and create skill rows
   for (item of playerItems) {
     //check if this is a skill
@@ -222,11 +225,12 @@ function addSkill(rollStat) {
       skillList = skillList + tempRow;
       //increment skill count
       skillCount++;
+      //increment pixel counter
+      dialogHeight = dialogHeight + 77;
     }
   } 
   //make content string
   skillHtml = skillHeader + skillList + skillFooter;
-  console.log(skillList);
   //bring up new dialog asking about adding skills
   new Dialog({
     title: `Stat Check`,
@@ -248,7 +252,7 @@ function addSkill(rollStat) {
         icon: `<i class="fas fa-angle-double-down"></i>`
       }
     }
-  },{width: 600,height: 570}).render(true);
+  },{width: 600,height: dialogHeight}).render(true);
 }
 
 new Dialog({
