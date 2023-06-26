@@ -1,56 +1,259 @@
-async function rollCheck(rollTable,rollString) {
-  console.log(rollTable);
-  console.log(rollString);
-  
-    //translate rollString into foundry roll string format
-    if (rollString.includes("[") === true) {
-      //extract dice needed
-      rollDice = rollString.substr(0,rollString.indexOf("[")).concat(',',rollString.substr(0,rollString.indexOf("[")));
-      //make adv/dis template
-      rollAdv = '{[diceSet]}kh';
-      rollDis = '{[diceSet]}kl';
-      //make foundry roll string
-      if (rollString.includes("[+]") === true) {
-        rollStringParsed = rollAdv.replace("[diceSet]",rollDice);
-      } else if (rollString.includes("[-]") === true) {
-        rollStringParsed = rollDis.replace("[diceSet]",rollDice);
-      }
-    } else {
-      rollStringParsed = rollString;
+async function rollCheck(addSkill,addPoints,rollStat,rollString) {
+  //translate rollString into foundry roll string format
+  if (rollString.includes("[") === true) {
+    //extract dice needed
+    rollDice = rollString.substr(0,rollString.indexOf("[")).concat(',',rollString.substr(0,rollString.indexOf("[")));
+    //make adv/dis template
+    rollAdv = '{[diceSet]}kh';
+    rollDis = '{[diceSet]}kl';
+    //make foundry roll string
+    if (rollString.includes("[+]") === true) {
+      rollStringParsed = rollAdv.replace("[diceSet]",rollDice);
+    } else if (rollString.includes("[-]") === true) {
+      rollStringParsed = rollDis.replace("[diceSet]",rollDice);
     }
-    //roll dice
-    let macroRoll = await new Roll(rollStringParsed).evaluate();
-  
-    //get table result
-    tableResult = game.tables.getName(rollTable).getResultsForRoll(macroRoll.total);
-    //create chat message template
-    macroResult = `
+  } else {
+    rollStringParsed = rollString;
+  }
+  //roll dice
+  let macroRoll = await new Roll(rollStringParsed).evaluate();
+  //get stress
+  curStress = game.user.character.system.other.stress.value;
+  //get the value for the chosen stat
+  if (rollStat = `strength`) {
+    msgHeader = rollStat + ` check`;
+    statName = `Strength`
+    statValue = game.user.character.system.stats.strength.value + addPoints;
+  } else if (rollStat = `speed`) {
+    statName = `Speed`
+    msgHeader = rollStat + ` check`;
+    statValue = game.user.character.system.stats.speed.value + addPoints;
+  } else if (rollStat = `intellect`) {
+    statName = `Intellect`
+    msgHeader = rollStat + ` check`;
+    statValue = game.user.character.system.stats.intellect.value + addPoints;
+  } else if (rollStat = `combat`) {
+    statName = `Combat`
+    msgHeader = rollStat + ` check`;
+    statValue = game.user.character.system.stats.combat.value + addPoints;
+  }
+  //prepare list of critical rolls
+  doubles = new Set([0, 11, 22, 33, 44, 55, 66, 77, 88, 99]);
+  //check for crit
+  if (doubles.has(macroRoll.total) === true) {
+    critical = "CRITICAL ";
+  } else {
+    critical = "";
+  }
+  //set result variables
+  if (macroRoll.total >= 90) {
+    outcome = "FAILURE";
+  } else if (macroRoll.total < statValue) {
+    outcome = "SUCCESS";
+  } else {
+    outcome = "FAILURE";
+  }
+  //set stress mod
+  if (outcome === "FAILURE") {
+    stressMod = 1;
+  } else {
+    stressMod = 0;
+  }
+  //set new stress level
+  if (curStress + stressMod > 20) {
+    newStress = 20;
+    stressDiff = newStress - curStress;
+    saveImpact = stressMod - stressDiff;
+  } else if (curStress + stressMod < 2) {
+    newStress = 2;
+    stressDiff = newStress - curStress;
+    saveImpact = stressMod - stressDiff;
+  } else {
+    newStress = curStress + stressMod;
+    stressDiff = newStress - curStress;
+    saveImpact = stressMod - stressDiff;
+  }
+  //create stress flavor text
+  if (addPoints > 0) {
+    msgFlavor = `
+    <div style="font-size: 1.1rem; margin-top : -10px; margin-bottom : 5px;">
+      <strong>${critical}${outcome}!</strong>
+    </div>
+    You attempt to roll lower than your ${statName} plus the ${addPoints} points from your ${addSkill} skill.<br>
+    `;
+  } else {
+    msgFlavor = `
+    <div style="font-size: 1.1rem; margin-top : -10px; margin-bottom : 5px;">
+      <strong>${critical}${outcome}!</strong>
+    </div>
+    You attempt to roll lower than your ${statName}.<br>
+    `;
+  }
+  //create chat variables
+  if (outcome = "FAILURE" && stressMod > 0 && newStress === 20 && stressDiff === 0) {
+    msgOutcome = `Stress increased from <strong>${curStress}</strong> to <strong>${newStress}</strong>.`;
+  } else if (outcome = "FAILURE" && stressMod > 0 && newStress === 20 && stressDiff === 0) {
+    msgOutcome = `You feel a part of yourself drift away. <strong>Reduce the most relevant Stat or Save by ${saveImpact}</strong>.`;
+  } else if (outcome = "FAILURE" && stressMod > 0 && newStress === 20 && stressDiff < stressMod) {
+    msgOutcome = `You hit rock bottom. Stress increased from <strong>${curStress}</strong> to <strong>${newStress}</strong>. You must also <strong>reduce the most relevant Stat or Save by ${saveImpact}</strong>.`;
+  } else {
+    msgOutcome = `You gain some confidence in your skills.`;
+  }
+  //create chat variables
+  if (outcome = "SUCCESS") {
+    msgOutcome = `Frustratingly, you can't seem to relax. You still have a stress of <strong>${newStress}</strong>.`;
+  } else {
+    msgOutcome = `Stress ${change} from <strong>${curStress}</strong> to <strong>${newStress}</strong>.`;
+  }
+  //create message if crit fail
+  if (critical === "CRITICAL " && outcome === "FAILURE") {
+    results_critfail = `<br><br>@Macro[Panic Check]{Make a Panic Check}`;
+  } else {
+    results_critfail = ``;
+  }
+  //set roll info
+  overUnder = `<i class="fas fa-angle-left"></i>`;
+  target = statValue;
+  //create chat message template
+  macroResult = `
   <div class="mosh">
     <div class="rollcontainer">
       <div class="flexrow" style="margin-bottom : 5px;">
-        <div class="rollweaponh1">${tableResult[0].parent.name}</div>
-        <div style="text-align: right"><img class="roll-image" src="${tableResult[0].img}" title="${tableResult[0].parent.name}" /></div>
+        <div class="rollweaponh1">${msgHeader}</div>
+        <div style="text-align: right"><img class="roll-image" src="modules/fvtt_mosh_1e_psg/icons/attributes/${rollStat}.png" /></div>
       </div>
-      <div class="description" style="margin-bottom : 20px;">${tableResult[0].text}</div>
+      <div class="description" style="margin-bottom: 10px;">
+      <div class="body">${msgFlavor}</div>
+    </div>
+    <div class="dice-roll" style="margin-bottom: 10px;">
+      <div class="dice-result">
+        <div class="dice-formula">${rollString} ${overUnder} ${target}</div>
+        <h4 class="dice-total">${macroRoll.total}</h4>
+      </div>
+    </div>
+    <div class="description" style="margin-bottom: 20px;">${msgOutcome}${results_critfail}</div>
     </div>
   </div>
   `;
-    //make message ID
-    chatId = randomID();
-    //make message
-    macroMsg = await macroRoll.toMessage({
-      id: chatId,
-      user: game.user._id,
-      speaker: ChatMessage.getSpeaker({token: actor}),
-      content: macroResult
-    },{keepId:true});
-    //make dice
-    await game.dice3d.waitFor3DAnimationByMessageID(chatId);
-  }
+  //make message ID
+  chatId = randomID();
+  //make message
+  macroMsg = await macroRoll.toMessage({
+    id: chatId,
+    user: game.user._id,
+    speaker: ChatMessage.getSpeaker({token: actor}),
+    content: macroResult
+  },{keepId:true});
+  //make dice
+  await game.dice3d.waitFor3DAnimationByMessageID(chatId);
+}
   
+function addSkill(rollStat) {
+  //get list of player skills
+  playerItems = game.user.character.items;
+  //create header for skill list
+  skillHeader = `
+  <style>
+    .macro_window{
+      background: rgb(230,230,230);
+      border-radius: 9px;
+    }
+    .macro_img{
+      display: flex;
+      justify-content: center; //do I need this
+    }
+    .macro_desc{
+      font-family: "Roboto", sans-serif;
+      font-size: 10.5pt;
+      font-weight: 400;
+      padding-left: 8px;
+      padding-top: 8px;
+      padding-right: 8px;
+      padding-bottom: 8px;
+    }
+    .grid-2col {
+      display: grid;
+      grid-column: span 2 / span 2;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2px;
+      padding: 0;
+    }
+  </style>
+  
+  <div class ="macro_window" style="margin-bottom : 7px;">
+      <div class="macro_desc"><h3>Add a Skill?</h3>If you have a Skill that is relevant to the task at hand, you can add the Skill’s bonus to your Stat or Save before making your roll <em>(giving you a higher number to roll under)</em>.</div>    
+  </div>`;
+  //create footer for skill list
+  skillFooter = `<h4>Select your roll type:</h4>`;
+  //create template for skill row
+  skillRow = `
+  <label for="[RADIO_ID]">
+    <div class ="macro_window" style="margin-bottom : 7px; vertical-align: middle; padding-left: 3px;">
+      <div class="grid grid-3col" style="grid-template-columns: 20px 60px auto">
+        <input type="radio" id="[RADIO_ID]" name="skill" value="[RADIO_VALUE]">
+        <div class="macro_img" style="padding-top: 5px; padding-left: 0px; padding-right: 0px; padding-bottom: 5px;"><img src="[RADIO_IMG]" style="border:none"/></div>
+        <div class="macro_desc" style="display: table;">
+          <span style="display: table-cell; vertical-align: middle;">
+            [RADIO_DESC]
+          </span>
+        </div>    
+      </div>
+    </div>
+  </label>`;
+  //create skillList string
+  skillList = ``;
+  //create skill counter
+  skillCount = 0;
+  //loop through and create skill rows
+  for (item of playerItems) {
+    //check if this is a skill
+    if (item.type === "skill") {
+      //set temprow as template
+      tempRow = skillRow;
+      //replace ID
+      tempRow = tempRow.replaceAll("[RADIO_ID]",item.name);
+      //replace value
+      tempRow = tempRow.replace("[RADIO_VALUE]",item.system.bonus);
+      //replace img
+      tempRow = tempRow.replace("[RADIO_IMG]",item.img);
+      //replace desc
+      tempRow = tempRow.replace("[RADIO_DESC]",item.system.description.replace("<p>","<p><strong>"+item.name+":</strong> "));
+      //add to skillList
+      skillList = skillList + tempRow;
+      //increment skill count
+      skillCount++;
+    }
+  } 
+  //make content string
+  skillHtml = skillHeader + skillList + skillFooter;
+  console.log(skillList);
+  //bring up new dialog asking about adding skills
   new Dialog({
     title: `Stat Check`,
-    content: `
+    content: skillHtml,
+    buttons: {
+      button1: {
+        label: `Advantage`,
+        callback: (html) => rollCheck(html.find("input[name='skill']:checked").attr("id"),html.find("input[name='skill']:checked").attr("value"),rollStat,`1d100[+]`),
+        icon: `<i class="fas fa-angle-double-up"></i>`
+      },
+      button2: {
+        label: `Normal`,
+        callback: (html) => rollCheck(html.find("input[name='skill']:checked").attr("id"),html.find("input[name='skill']:checked").attr("value"),rollStat,`1d100`),
+        icon: `<i class="fas fa-minus"></i>`
+      },
+      button3: {
+        label: `Disadvantage`,
+        callback: (html) => rollCheck(html.find("input[name='skill']:checked").attr("id"),html.find("input[name='skill']:checked").attr("value"),rollStat,`1d100[-]`),
+        icon: `<i class="fas fa-angle-double-down"></i>`
+      }
+    }
+  },{width: 600,height: 570}).render(true);
+}
+
+new Dialog({
+  title: `Stat Check`,
+  content: `
   <style>
     .macro_window{
       background: rgb(230,230,230);
@@ -80,7 +283,7 @@ async function rollCheck(rollTable,rollString) {
   <div class ="macro_window" style="margin-bottom : 7px;">
     <div class="grid grid-2col" style="grid-template-columns: 150px auto">
       <div class="macro_img"><img src="modules/fvtt_mosh_1e_psg/icons/macros/stat_check.png" style="border:none"/></div>
-      <div class="macro_desc"><h3>Stat Check</h3>You have four main Stats which represent your abilities when acting under extreme pressure. Whenever you want to do something and the price for failure is high, roll a stat check. <strong>If you roll less than your Stat you succeed. Otherwise, you fail and gain 1 Stress.</strong> A roll of 90-99 is always a failure. A Critical Failure means something bad happens, and furthermore you must make a Panic Check.</div>    
+      <div class="macro_desc"><h3>Stat Check</h3>You have four Stats which represent your ability to act under extreme pressure. Whenever you want to do something and the price for failure is high, roll a stat check. <strong>If you roll less than your Stat you succeed. Otherwise, you fail and gain 1 Stress.</strong> A roll of 90-99 is always a failure. A Critical Failure means something bad happens, and furthermore you must make a Panic Check.</div>    
     </div>
   </div>
   <label for="str">
@@ -135,24 +338,12 @@ async function rollCheck(rollTable,rollString) {
       </div>
     </div>
   </label>
-  
-  <h4>Select your roll type:</h4>
   `,
-    buttons: {
-      button1: {
-        label: `Advantage`,
-        callback: (html) => rollCheck(html.find("input[name='wound_table']:checked").val(),`1d10[+]`),
-        icon: `<i class="fas fa-angle-double-up"></i>`
-      },
-      button2: {
-        label: `Normal`,
-        callback: (html) => rollCheck(html.find("input[name='wound_table']:checked").val(),`1d10`),
-        icon: `<i class="fas fa-minus"></i>`
-      },
-      button3: {
-        label: `Disadvantage`,
-        callback: (html) => rollCheck(html.find("input[name='wound_table']:checked").val(),`1d10[-]`),
-        icon: `<i class="fas fa-angle-double-down"></i>`
-      }
+  buttons: {
+    button1: {
+      label: `Next`,
+      callback: (html) => addSkill(html.find("input[name='stat']:checked").val()),
+      icon: `<i class="fas fa-chevron-circle-right"></i>`
     }
-  },{width: 600,height: 570}).render(true);
+  }
+},{width: 600,height: 545}).render(true);
