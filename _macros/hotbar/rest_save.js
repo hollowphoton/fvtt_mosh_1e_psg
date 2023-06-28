@@ -17,6 +17,8 @@ async function rollCheck(rollString) {
 	}
 	//roll dice
 	let macroRoll = await new Roll(rollStringParsed).evaluate();
+  //turn 100 to 0
+  if (macroRoll.total === 100) {macroRoll.total = 0}
 	//get attributes to compare against
   curStress = game.user.character.system.other.stress.value;
   sanitySave = game.user.character.system.stats.sanity.value;
@@ -206,7 +208,7 @@ async function rollCheck(rollString) {
 	buttons: {
 	  button1: {
 		label: `Advantage`,
-		callback: () => rollCheck(`1d100[+]`),
+		callback: () => rollCheck(`1d100 [+]`),
 		icon: `<i class="fas fa-angle-double-up"></i>`
 	  },
 	  button2: {
@@ -216,7 +218,7 @@ async function rollCheck(rollString) {
 	  },
 	  button3: {
 		label: `Disadvantage`,
-		callback: () => rollCheck(`1d100[-]`),
+		callback: () => rollCheck(`1d100 [-]`),
 		icon: `<i class="fas fa-angle-double-down"></i>`
 	  }
 	}

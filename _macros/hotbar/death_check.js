@@ -17,6 +17,8 @@ async function rollCheck(rollString) {
   }
   //roll dice
   let macroRoll = await new Roll(rollStringParsed).evaluate();
+  //turn 10 to 0
+  if (macroRoll.total === 10) {macroRoll.total = 0}
   //get table result
   tableResult = game.tables.getName("Death Check").getResultsForRoll(macroRoll.total);
   //create chat message template
@@ -85,7 +87,7 @@ new Dialog({
   buttons: {
     button1: {
       label: `Advantage`,
-      callback: () => rollCheck(`1d10[+]`),
+      callback: () => rollCheck(`1d10 [+]`),
       icon: `<i class="fas fa-angle-double-up"></i>`
     },
     button2: {
@@ -95,7 +97,7 @@ new Dialog({
     },
     button3: {
       label: `Disadvantage`,
-      callback: () => rollCheck(`1d10[-]`),
+      callback: () => rollCheck(`1d10 [-]`),
       icon: `<i class="fas fa-angle-double-down"></i>`
     }
   }

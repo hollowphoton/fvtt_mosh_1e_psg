@@ -143,7 +143,7 @@ async function rollCheck(rollString) {
 	buttons: {
 	  button1: {
 		label: `Advantage`,
-		callback: () => rollCheck(`1d20[+]`),
+		callback: () => rollCheck(`1d20 [+]`),
 		icon: `<i class="fas fa-angle-double-up"></i>`
 	  },
 	  button2: {
@@ -153,7 +153,7 @@ async function rollCheck(rollString) {
 	  },
 	  button3: {
 		label: `Disadvantage`,
-		callback: () => rollCheck(`1d20[-]`),
+		callback: () => rollCheck(`1d20 [-]`),
 		icon: `<i class="fas fa-angle-double-down"></i>`
 	  }
 	}

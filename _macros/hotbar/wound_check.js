@@ -4,8 +4,8 @@ async function rollCheck(rollTable,rollString) {
     //extract dice needed
     rollDice = rollString.substr(0,rollString.indexOf("[")).concat(',',rollString.substr(0,rollString.indexOf("[")));
     //make adv/dis template
-    rollAdv = '{[diceSet]}kh';
-    rollDis = '{[diceSet]}kl';
+    rollAdv = '{[diceSet]}kl';
+    rollDis = '{[diceSet]}kh';
     //make foundry roll string
     if (rollString.includes("[+]") === true) {
       rollStringParsed = rollAdv.replace("[diceSet]",rollDice);
@@ -17,7 +17,8 @@ async function rollCheck(rollTable,rollString) {
   }
   //roll dice
   let macroRoll = await new Roll(rollStringParsed).evaluate();
-
+  //turn 10 to 0
+  if (macroRoll.total === 10) {macroRoll.total = 0}
   //get table result
   tableResult = game.tables.getName(rollTable).getResultsForRoll(macroRoll.total);
   //create chat message template
@@ -151,7 +152,7 @@ new Dialog({
   buttons: {
     button1: {
       label: `Advantage`,
-      callback: (html) => rollCheck(html.find("input[name='wound_table']:checked").val(),`1d10[+]`),
+      callback: (html) => rollCheck(html.find("input[name='wound_table']:checked").val(),`1d10 [+]`),
       icon: `<i class="fas fa-angle-double-up"></i>`
     },
     button2: {
@@ -161,7 +162,7 @@ new Dialog({
     },
     button3: {
       label: `Disadvantage`,
-      callback: (html) => rollCheck(html.find("input[name='wound_table']:checked").val(),`1d10[-]`),
+      callback: (html) => rollCheck(html.find("input[name='wound_table']:checked").val(),`1d10 [-]`),
       icon: `<i class="fas fa-angle-double-down"></i>`
     }
   }

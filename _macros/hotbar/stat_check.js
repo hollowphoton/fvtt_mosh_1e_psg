@@ -4,8 +4,8 @@ async function rollCheck(addSkill,addPoints,rollStat,rollString) {
     //extract dice needed
     rollDice = rollString.substr(0,rollString.indexOf("[")).concat(',',rollString.substr(0,rollString.indexOf("[")));
     //make adv/dis template
-    rollAdv = '{[diceSet]}kh';
-    rollDis = '{[diceSet]}kl';
+    rollAdv = '{[diceSet]}kl';
+    rollDis = '{[diceSet]}kh';
     //make foundry roll string
     if (rollString.includes("[+]") === true) {
       rollStringParsed = rollAdv.replace("[diceSet]",rollDice);
@@ -17,6 +17,8 @@ async function rollCheck(addSkill,addPoints,rollStat,rollString) {
   }
   //roll dice
   let macroRoll = await new Roll(rollStringParsed).evaluate();
+  //turn 100 to 0
+  if (macroRoll.total === 100) {macroRoll.total = 0}
   //get stress
   curStress = game.user.character.system.other.stress.value;
   //get the value for the chosen stat
@@ -238,7 +240,7 @@ function addSkill(rollStat) {
     buttons: {
       button1: {
         label: `Advantage`,
-        callback: (html) => rollCheck(html.find("input[name='skill']:checked").attr("id"),html.find("input[name='skill']:checked").attr("value"),rollStat,`1d100[+]`),
+        callback: (html) => rollCheck(html.find("input[name='skill']:checked").attr("id"),html.find("input[name='skill']:checked").attr("value"),rollStat,`1d100 [+]`),
         icon: `<i class="fas fa-angle-double-up"></i>`
       },
       button2: {
@@ -248,7 +250,7 @@ function addSkill(rollStat) {
       },
       button3: {
         label: `Disadvantage`,
-        callback: (html) => rollCheck(html.find("input[name='skill']:checked").attr("id"),html.find("input[name='skill']:checked").attr("value"),rollStat,`1d100[-]`),
+        callback: (html) => rollCheck(html.find("input[name='skill']:checked").attr("id"),html.find("input[name='skill']:checked").attr("value"),rollStat,`1d100 [-]`),
         icon: `<i class="fas fa-angle-double-down"></i>`
       }
     }
