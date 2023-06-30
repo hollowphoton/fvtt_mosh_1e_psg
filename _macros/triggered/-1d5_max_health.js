@@ -5,7 +5,10 @@ maxValue = game.user.character.system.health.max;
 //set value to add
 msgHeader = 'MAXIMUM HEALTH LOST';
 msgImg = 'modules/fvtt_mosh_1e_psg/icons/attributes/health.png';
-valueMod = -1;
+//roll dice
+let macroRoll = await new Roll("-1d5").evaluate();
+//set stressmod
+valueMod = macroRoll.total;
 //set new value level
 if (curValue + valueMod > maxValue) {
     newValue = maxValue;
@@ -54,12 +57,16 @@ macroResult = `
 </div>
 </div>
 `;
-//push chat message
-ChatMessage.create({
-    user: game.user._id,
-    speaker: ChatMessage.getSpeaker({token: actor}),
-    content: macroResult
-});
+chatId = randomID();
+//make message
+macroMsg = await macroRoll.toMessage({
+  id: chatId,
+  user: game.user._id,
+  speaker: ChatMessage.getSpeaker({token: actor}),
+  content: macroResult
+},{keepId:true});
+//make dice
+await game.dice3d.waitFor3DAnimationByMessageID(chatId);
 //update characters value level
 game.user.character.update({'system.health.max': newValue});
 //change current value if max is lower
