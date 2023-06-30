@@ -63,13 +63,13 @@
         "path": "packs/rolltables.db"
       },
       {
-        "label": "Macros - Hotbar",
+        "label": "Hotbar Macros",
         "type": "Macro",
         "name": "macros_hotbar",
         "path": "packs/macros_hotbar.db"
       },
       {
-        "label": "Macros - Triggered",
+        "label": "Triggered Macros",
         "type": "Macro",
         "name": "macros_triggered",
         "path": "packs/macros_triggered.db"
