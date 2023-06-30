@@ -11,6 +11,8 @@ msgHeader = 'STRENGTH LOST';
 msgImg = 'modules/fvtt_mosh_1e_psg/icons/attributes/strength.png';
 //set new value level
 newValue = curValue + valueMod;
+//update characters value level
+game.user.character.update({'system.stats.strength.value': newValue});
 //create value flavor text
 if (game.user.character.system.class.value === 'Android') {
     msgFlavor = `Central partition damage detected. Unrecoverable sectors found.<br><br>`;
@@ -46,5 +48,3 @@ macroMsg = await macroRoll.toMessage({
 },{keepId:true});
 //make dice
 await game.dice3d.waitFor3DAnimationByMessageID(chatId);
-//update characters value level
-game.user.character.update({'system.stats.strength.value': newValue});

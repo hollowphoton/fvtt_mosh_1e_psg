@@ -27,6 +27,9 @@ if (curValue + valueMod > maxValue) {
     actorImpact = valueMod - valueDiff;
     newWounds = curWounds;
 }
+//update characters value level
+game.user.character.update({'system.health.value': newValue});
+game.user.character.update({'system.hits.value': newWounds});
 //create value flavor text
 if (game.user.character.system.class.value === 'Android') {
     msgFlavor = `Your pain receptors indicate core damage.<br><br>`;
@@ -76,6 +79,3 @@ macroMsg = await macroRoll.toMessage({
 },{keepId:true});
 //make dice
 await game.dice3d.waitFor3DAnimationByMessageID(chatId);
-//update characters value level
-game.user.character.update({'system.health.value': newValue});
-game.user.character.update({'system.hits.value': newWounds});

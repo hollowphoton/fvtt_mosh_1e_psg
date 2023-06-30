@@ -7,7 +7,7 @@ maxWounds = game.user.character.system.hits.max;
 //set value to add
 msgHeader = 'HEALTH LOST';
 msgImg = 'modules/fvtt_mosh_1e_psg/icons/attributes/health.png';
-valueMod = game.user.character.items.getName("Bleeding").system.severity;
+valueMod = game.user.character.items.getName("Bleeding").system.severity*-1;
 //set new value level
 if (curValue + valueMod > maxValue) {
     newValue = maxValue;
@@ -24,6 +24,9 @@ if (curValue + valueMod > maxValue) {
     actorImpact = valueMod - valueDiff;
     newWounds = curWounds;
 }
+//update characters value level
+game.user.character.update({'system.health.value': newValue});
+game.user.character.update({'system.hits.value': newWounds});
 //create value flavor text
 if (game.user.character.system.class.value === 'Android') {
     msgFlavor = `Your sensors detect significant nanofluid loss.<br><br>`;
@@ -69,6 +72,3 @@ ChatMessage.create({
     speaker: ChatMessage.getSpeaker({token: actor}),
     content: macroResult
 });
-//update characters value level
-game.user.character.update({'system.health.value': newValue});
-game.user.character.update({'system.hits.value': newWounds});

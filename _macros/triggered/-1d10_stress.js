@@ -23,6 +23,8 @@ if (curValue + valueMod > maxValue) {
     valueDiff = newValue - curValue;
     actorImpact = valueMod - valueDiff;
 }
+//update characters value level
+game.user.character.update({'system.other.stress.value': newValue});
 //create value flavor text
 if (game.user.character.system.class.value === 'Android') {
     msgFlavor = `You soft-reset, purging unnecessary background processes.<br><br>`;
@@ -69,5 +71,3 @@ macroMsg = await macroRoll.toMessage({
 },{keepId:true});
 //make dice
 await game.dice3d.waitFor3DAnimationByMessageID(chatId);
-//update characters value level
-game.user.character.update({'system.other.stress.value': newValue});
