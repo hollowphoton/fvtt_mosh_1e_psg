@@ -1,24 +1,51 @@
 async function rollCheck(addSkill,addPoints,rollSave,rollString) {
+  //init vars
+  rollAdvDis = rollString.includes("[");
   //translate rollString into foundry roll string format
-  if (rollString.includes("[") === true) {
+  if (rollAdvDis === true) {
     //extract dice needed
     rollDice = rollString.substr(0,rollString.indexOf("[")).concat(',',rollString.substr(0,rollString.indexOf("[")));
     //make adv/dis template
-    rollAdv = '{[diceSet]}kl';
-    rollDis = '{[diceSet]}kh';
+    rollTemplate = '{[diceSet]}';
     //make foundry roll string
-    if (rollString.includes("[+]") === true) {
-      rollStringParsed = rollAdv.replace("[diceSet]",rollDice);
-    } else if (rollString.includes("[-]") === true) {
-      rollStringParsed = rollDis.replace("[diceSet]",rollDice);
-    }
+    rollStringParsed = rollTemplate.replace("[diceSet]",rollDice);
   } else {
     rollStringParsed = rollString;
   }
   //roll dice
   let macroRoll = await new Roll(rollStringParsed).evaluate();
-  //turn 100 to 0
-  if (macroRoll.total === 100) {macroRoll.total = 0}
+  //assign to vars + replace 100s with 0s
+  if (rollAdvDis === true) {
+    //get values
+    rollA1 = macroRoll.dice[0].results[0].result;
+    rollB1 = macroRoll.dice[1].results[0].result;
+    //replace 10s
+    if (rollA1 === 100) {rollA1 = 0;}
+    if (rollB1 === 100) {rollB1 = 0;}
+  } else {
+    //get values
+    rollA1 = macroRoll.dice[0].results[0].result;
+    //replace 10s
+    if (rollA1 === 100) {rollA1= 0;}
+  }
+  //choose best value based on Adv/Dis
+  if (rollAdvDis === true) {
+    if (rollString.includes("[+]") === true) {
+      if(rollA1 < rollB1) { 
+        finalRoll = rollA1;
+      } else {
+        finalRoll = rollB1;
+      }
+    } else if (rollString.includes("[-]") === true) {
+      if(rollA1 > rollB1) { 
+        finalRoll = rollA1;
+      } else {
+        finalRoll = rollB1;
+      }
+    }
+  } else {
+    finalRoll = rollA1;
+  }
   //get stress
   curStress = game.user.character.system.other.stress.value;
   //get the value for the chosen stat
@@ -43,16 +70,16 @@ async function rollCheck(addSkill,addPoints,rollSave,rollString) {
   //prepare list of critical rolls
   doubles = new Set([0, 11, 22, 33, 44, 55, 66, 77, 88, 99]);
   //check for crit
-  if (doubles.has(macroRoll.total) === true) {
+  if (doubles.has(finalRoll) === true) {
     critical = "CRITICAL ";
   } else {
     critical = "";
   }
   //set result variables
-  if (macroRoll.total >= 90) {
+  if (finalRoll >= 90) {
     outcome = "FAILURE";
     position = 'higher';
-  } else if (macroRoll.total < target) {
+  } else if (finalRoll < target) {
     outcome = "SUCCESS";
     position = 'lower';
   } else {
@@ -127,7 +154,7 @@ async function rollCheck(addSkill,addPoints,rollSave,rollString) {
     <div class="dice-roll" style="margin-bottom: 10px;">
       <div class="dice-result">
         <div class="dice-formula">${rollString} ${overUnder} ${target}</div>
-        <h4 class="dice-total">${macroRoll.total}</h4>
+        <h4 class="dice-total">${finalRoll}</h4>
       </div>
     </div>
     <div class="description" style="margin-bottom: 20px;">${msgOutcome}${results_critfail}</div>

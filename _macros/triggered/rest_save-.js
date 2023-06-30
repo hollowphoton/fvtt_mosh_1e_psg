@@ -1,11 +1,52 @@
 //set rollString
-rollString = '{1d100,1d100}kh';
-//roll dice
-let macroRoll = await new Roll(rollString).evaluate();
-//set roll number
-finalRoll = macroRoll.total;
-//turn 10 to 0
-if (finalRoll === 100) {finalRoll  = 0;}
+rollString = '1d100 [-]';
+  //init vars
+  rollAdvDis = rollString.includes("[");
+  //translate rollString into foundry roll string format
+  if (rollAdvDis === true) {
+    //extract dice needed
+    rollDice = rollString.substr(0,rollString.indexOf("[")).concat(',',rollString.substr(0,rollString.indexOf("[")));
+    //make adv/dis template
+    rollTemplate = '{[diceSet]}';
+    //make foundry roll string
+    rollStringParsed = rollTemplate.replace("[diceSet]",rollDice);
+  } else {
+    rollStringParsed = rollString;
+  }
+  //roll dice
+  let macroRoll = await new Roll(rollStringParsed).evaluate();
+  //assign to vars + replace 100s with 0s
+  if (rollAdvDis === true) {
+    //get values
+    rollA1 = macroRoll.dice[0].results[0].result;
+    rollB1 = macroRoll.dice[1].results[0].result;
+    //replace 10s
+    if (rollA1 === 100) {rollA1 = 0;}
+    if (rollB1 === 100) {rollB1 = 0;}
+  } else {
+    //get values
+    rollA1 = macroRoll.dice[0].results[0].result;
+    //replace 10s
+    if (rollA1 === 100) {rollA1= 0;}
+  }
+  //choose best value based on Adv/Dis
+  if (rollAdvDis === true) {
+    if (rollString.includes("[+]") === true) {
+      if(rollA1 < rollB1) { 
+        finalRoll = rollA1;
+      } else {
+        finalRoll = rollB1;
+      }
+    } else if (rollString.includes("[-]") === true) {
+      if(rollA1 > rollB1) { 
+        finalRoll = rollA1;
+      } else {
+        finalRoll = rollB1;
+      }
+    }
+  } else {
+    finalRoll = rollA1;
+  }
 //get attributes to compare against
 curStress = game.user.character.system.other.stress.value;
 sanitySave = game.user.character.system.stats.sanity.value;

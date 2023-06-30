@@ -6,8 +6,6 @@ curWounds = game.user.character.system.hits.value;
 maxWounds = game.user.character.system.hits.max;
 //roll dice
 let macroRoll = await new Roll("-1d10").evaluate();
-//turn 10 to 0
-if (macroRoll.total === -10) {macroRoll.total = 0}
 //set stressmod
 valueMod = macroRoll.total;
 //set value to add
