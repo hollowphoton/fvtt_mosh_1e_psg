@@ -2,7 +2,7 @@
     "id": "fvtt_mosh_1e_psg",
     "title": "Mothership 1e Compendium - PSG",
     "description": "A compendium covering everything in the Player's Survival Guide",
-    "version": "0.2.4",
+    "version": "0.2.5",
     "compatibility": {
       "minimum": "10",
       "verified": "11.302"
