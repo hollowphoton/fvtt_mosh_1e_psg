@@ -127,9 +127,9 @@ async function rollCheck(addSkill,addPoints,rollSave,rollString) {
   //create chat variables
   if (outcome === "SUCCESS") {
     msgOutcome = `You gain some confidence in your skills.`;    
-  } else if (outcome === "FAILURE" && stressMod > 0 && newStress === 20 && stressDiff > 0) {
+  } else if (outcome === "FAILURE" && stressMod > 0 && curStress < 20 && newStress === 20 && saveImpact > 0) {
     msgOutcome = `You hit rock bottom. Stress increased from <strong>${curStress}</strong> to <strong>${newStress}</strong>. You must also <strong>reduce the most relevant Stat or Save by ${saveImpact}</strong>.`;
-  } else if (outcome === "FAILURE" && stressMod > 0 && newStress === 20 && stressDiff === 0) {
+  } else if (outcome === "FAILURE" && stressMod > 0 && curStress === 20 && newStress === 20 && saveImpact > 0) {
     msgOutcome = `You feel a part of yourself drift away. <strong>Reduce the most relevant Stat or Save by ${saveImpact}</strong>.`;
   } else {
     msgOutcome = `Stress increased from <strong>${curStress}</strong> to <strong>${newStress}</strong>.`;
