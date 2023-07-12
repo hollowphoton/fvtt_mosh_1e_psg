@@ -16,6 +16,7 @@ async function bleedDamage() {
         newValue = maxValue + (curValue + valueMod);
         newWounds = curWounds + 1;
         if (newWounds > maxWounds) {
+            newValue = minValue;
             msgOutcome = `You are at death's door.<br><br>@Macro[Death Check]{Make a Death Check}`;
         } else {
             msgOutcome = `Health decreased by ${valueMod} points. You gain a wound and now have ${newValue} Health.<br><br>@Macro[Wound Check]{Make a Wound Check}`;
