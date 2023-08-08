@@ -50,9 +50,9 @@ async function restSave(rollString) {
   }
   //get attributes to compare against
   curStress = game.user.character.system.other.stress.value;
-  sanitySave = game.user.character.system.stats.sanity.value;
-  fearSave = game.user.character.system.stats.fear.value;
-  bodySave = game.user.character.system.stats.body.value;
+  sanitySave = game.user.character.system.stats.sanity.value + game.user.character.system.stats.sanity.mod;
+  fearSave = game.user.character.system.stats.fear.value + game.user.character.system.stats.fear.mod;
+  bodySave = game.user.character.system.stats.body.value + game.user.character.system.stats.body.mod;
   minSave = Math.min(sanitySave, fearSave, bodySave);
   //calculate rest result
   onesValue = Number(String(finalRoll).charAt(String(finalRoll).length-1));
@@ -185,11 +185,13 @@ async function restSave(rollString) {
   </div>
   `;
   chatId = randomID();
+  //get speaker character
+  activeCharacter = canvas.scene.data.tokens.find(token => token.name = game.user.character.name);
   //make message
   macroMsg = await macroRoll.toMessage({
     id: chatId,
     user: game.user._id,
-    speaker: ChatMessage.getSpeaker({token: actor}),
+    speaker: ChatMessage.getSpeaker({token: activeCharacter}),
     content: macroResult
   },{keepId:true});
   //make dice

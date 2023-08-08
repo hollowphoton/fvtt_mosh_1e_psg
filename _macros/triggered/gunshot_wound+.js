@@ -64,11 +64,13 @@ async function woundCheck(rollTable,rollString) {
     `;
     //make message ID
     chatId = randomID();
+    //get speaker character
+    activeCharacter = canvas.scene.data.tokens.find(token => token.name = game.user.character.name);
     //make message
     macroMsg = await macroRoll.toMessage({
     id: chatId,
     user: game.user._id,
-    speaker: ChatMessage.getSpeaker({token: actor}),
+    speaker: ChatMessage.getSpeaker({token: activeCharacter}),
     content: macroResult
     },{keepId:true});
     //make dice

@@ -35,10 +35,12 @@ async function addCondition(conditionName,sevIncrease) {
         </div>
     </div>
     `;
+    //get speaker character
+    activeCharacter = canvas.scene.data.tokens.find(token => token.name = game.user.character.name);
     //push chat message
     ChatMessage.create({
         user: game.user._id,
-        speaker: ChatMessage.getSpeaker({token: actor}),
+        speaker: ChatMessage.getSpeaker({token: activeCharacter}),
         content: macroResult
     });
 }

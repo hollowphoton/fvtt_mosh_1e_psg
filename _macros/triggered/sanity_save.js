@@ -1,4 +1,4 @@
-makeDialog('sanity','1d100 [-]');
+makeDialog('sanity','1d100');
 
 //main roll function
 async function rollCheck(addSkill,addPoints,rollStat,rollString) {
@@ -75,15 +75,15 @@ async function rollCheck(addSkill,addPoints,rollStat,rollString) {
   } else if (rollStat === `sanity`) {
     statName = `Sanity`
     msgHeader = rollStat + ` save`;
-    statValue = game.user.character.system.stats.sanity.value;
+    statValue = game.user.character.system.stats.sanity.value + game.user.character.system.stats.sanity.mod;
   } else if (rollStat === `fear`) {
     statName = `Fear`
     msgHeader = rollStat + ` save`;
-    statValue = game.user.character.system.stats.fear.value;
+    statValue = game.user.character.system.stats.fear.value + game.user.character.system.stats.fear.mod;
   } else if (rollStat === `body`) {
     statName = `Body`
     msgHeader = rollStat + ` save`;
-    statValue = game.user.character.system.stats.body.value;
+    statValue = game.user.character.system.stats.body.value + game.user.character.system.stats.body.mod;
   }
   //set addPoints to zero if null
   if(addPoints === undefined) {addPoints = 0}

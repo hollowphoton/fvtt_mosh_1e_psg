@@ -52,15 +52,15 @@ async function rollCheck(addSkill,addPoints,rollSave,rollString) {
   if (rollSave === `sanity`) {
     saveName = `Sanity`
     msgHeader = rollSave + ` save`;
-    saveValue = game.user.character.system.stats.sanity.value;
+    saveValue = game.user.character.system.stats.sanity.value + game.user.character.system.stats.sanity.mod;
   } else if (rollSave === `fear`) {
     saveName = `Fear Save`
     msgHeader = rollSave + ` save`;
-    saveValue = game.user.character.system.stats.fear.value;
+    saveValue = game.user.character.system.stats.fear.value + game.user.character.system.stats.fear.mod;
   } else if (rollSave === `body`) {
     saveName = `Body`
     msgHeader = rollSave + ` save`;
-    saveValue = game.user.character.system.stats.body.value;
+    saveValue = game.user.character.system.stats.body.value + game.user.character.system.stats.body.mod;
   }
   //set addPoints to zero if null
   if(addPoints === undefined) {addPoints = 0}
@@ -163,11 +163,13 @@ async function rollCheck(addSkill,addPoints,rollSave,rollString) {
   `;
   //make message ID
   chatId = randomID();
+  //get speaker character
+  activeCharacter = canvas.scene.data.tokens.find(token => token.name = game.user.character.name);
   //make message
   macroMsg = await macroRoll.toMessage({
     id: chatId,
     user: game.user._id,
-    speaker: ChatMessage.getSpeaker({token: actor}),
+    speaker: ChatMessage.getSpeaker({token: activeCharacter}),
     content: macroResult
   },{keepId:true});
   //make dice

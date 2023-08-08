@@ -39,10 +39,12 @@ async function relieveStress(stressMod) {
     </div>
   </div>
   `;
+  //get speaker character
+  activeCharacter = canvas.scene.data.tokens.find(token => token.name = game.user.character.name);
   //push chat message
   ChatMessage.create({
     user: game.user._id,
-    speaker: ChatMessage.getSpeaker({token: actor}),
+    speaker: ChatMessage.getSpeaker({token: activeCharacter}),
     content: macroResult
   });
   //update characters stress level
@@ -114,11 +116,13 @@ async function rollStress(rollString) {
   `;
   //make message ID
   chatId = randomID();
+  //get speaker character
+  activeCharacter = canvas.scene.data.tokens.find(token => token.name = game.user.character.name);
   //make message
   macroMsg = await macroRoll.toMessage({
     id: chatId,
     user: game.user._id,
-    speaker: ChatMessage.getSpeaker({token: actor}),
+    speaker: ChatMessage.getSpeaker({token: activeCharacter}),
     content: macroResult
   },{keepId:true});
   //make dice
