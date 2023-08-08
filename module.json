@@ -15,12 +15,6 @@
         "path": "packs/items_skills.db"
       },
       {
-        "label": "Pet Skills",
-        "type": "Item",
-        "name": "items_pet_skills",
-        "path": "packs/items_pet_skills.db"
-      },
-      {
         "label": "Armor",
         "type": "Item",
         "name": "items_armors",
