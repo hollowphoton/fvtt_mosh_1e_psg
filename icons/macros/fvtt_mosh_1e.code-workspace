@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "fvtt_mosh_1e_terminal",
+			"path": "../../../fvtt_mosh_1e_terminal"
+		}
+	],
+	"settings": {}
+}
