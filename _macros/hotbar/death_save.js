@@ -47,7 +47,7 @@ async function rollCheck(rollString) {
     finalRoll = rollA1;
   }
   //get table result
-  tableResult = game.tables.getName("Death Check").getResultsForRoll(finalRoll);
+  tableResult = game.tables.getName("Death Save").getResultsForRoll(finalRoll);
   //create chat message template
   macroResult = `
 <div class="mosh">
@@ -76,7 +76,7 @@ async function rollCheck(rollString) {
 }
 
 new Dialog({
-  title: `Death Check`,
+  title: `Death Save`,
   content: `
 <style>
   .macro_window{
@@ -106,8 +106,8 @@ new Dialog({
 
 <div class ="macro_window" style="margin-bottom : 7px;">
   <div class="grid grid-2col" style="grid-template-columns: 150px auto">
-    <div class="macro_img"><img src="modules/fvtt_mosh_1e_psg/icons/rolltables/death_check.png" style="border:none"/></div>
-    <div class="macro_desc"><h3>Death Check</h3>Whenever you would die, the Warden makes a <strong>Death Check</strong> for you. As soon as someone spends a turn checking your vitals, the result is revealed. If your character’s death is imminent, make your last moments count: save someone’s life, solve an important mystery, or give the others time to escape. Enjoy the carnage, then jump back in for more!</div>    
+    <div class="macro_img"><img src="modules/fvtt_mosh_1e_psg/icons/rolltables/death_save.png" style="border:none"/></div>
+    <div class="macro_desc"><h3>Death Save</h3>Whenever you would die, the Warden makes a <strong>Death Save</strong> for you. As soon as someone spends a turn checking your vitals, the result is revealed. If your character’s death is imminent, make your last moments count: save someone’s life, solve an important mystery, or give the others time to escape. Enjoy the carnage, then jump back in for more!</div>    
   </div>
 </div>
 

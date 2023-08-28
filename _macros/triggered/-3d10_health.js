@@ -8,55 +8,35 @@ async function alterAttribute() {
     curWounds = game.user.character.system.hits.value;
     maxWounds = game.user.character.system.hits.max;
     //roll dice
-    let macroRoll = await new Roll("1d10").evaluate();
-    //turn 10 to 0
-    if (macroRoll.total === 10) {macroRoll.total = 0}
+    let macroRoll = await new Roll("-3d10").evaluate();
     //set stressmod
     valueMod = macroRoll.total;
     //set value to add
-    msgHeader = 'HEALTH GAINED';
+    msgHeader = 'HEALTH LOST';
     msgImg = 'modules/fvtt_mosh_1e_psg/icons/attributes/health.png';
     //set new value level
-    if (curValue + valueMod > maxValue) {
-        newValue = maxValue;
-        valueDiff = newValue - curValue;
-        actorImpact = valueMod - valueDiff;
-        newWounds = curWounds;
-    } else if (curValue + valueMod < minValue) {
-        newValue = minValue;
-        valueDiff = newValue - curValue;
-        actorImpact = valueMod - valueDiff;
+    if (curValue + valueMod <= minValue) {
+        newValue = maxValue + (curValue + valueMod);
+        newWounds = curWounds + 1;
+        if (newWounds > maxWounds) {
+            newValue = minValue;
+            msgOutcome = `You are at death's door.<br><br>@Macro[Death Save]{Make a Death Save}`;
+        } else {
+            msgOutcome = `Health decreased by ${valueMod} points. You gain a wound and now have ${newValue} Health.<br><br>@Macro[Wound Check]{Make a Wound Check}`;
+        }
     } else {
         newValue = curValue + valueMod;
-        valueDiff = newValue - curValue;
-        actorImpact = valueMod - valueDiff;
         newWounds = curWounds;
+        msgOutcome = `Health decreased from <strong>${curValue}</strong> to <strong>${newValue}</strong>.`;
     }
     //update characters value level
     game.user.character.update({'system.health.value': newValue});
     game.user.character.update({'system.hits.value': newWounds});
     //create value flavor text
     if (game.user.character.system.class.value === 'Android') {
-        msgFlavor = `System resources free up and you feel energized.<br><br>`;
+        msgFlavor = `Your pain receptors indicate core damage.<br><br>`;
     } else {
-        msgFlavor = `You feel a burst of energy.<br><br>`;
-    }
-    //create chat variables
-    if (valueMod > 0 && newValue === maxValue && valueDiff === 0) {
-        msgOutcome = `You are already at full health.`;
-    } else if (valueMod > 0 && valueDiff > 0) {
-        msgOutcome = `Health increased from <strong>${curValue}</strong> to <strong>${newValue}</strong>.`;
-    } else if (valueMod < 0 && valueDiff < 0) {
-        msgOutcome = `Health decreased from <strong>${curValue}</strong> to <strong>${newValue}</strong>.`;
-    } else if (valueMod < 0 && valueDiff < 0 && newValue <= minValue) {
-        woundImpact = 1;
-        newWounds = curWounds + 1;
-        newValue = maxValue+actorImpact;
-        msgOutcome = `Health decreased by ${valueMod} points. You gain a wound and now have ${newValue} Health.<br><br>@Macro[Wound Check]{Make a Wound Check}`;
-    } else if (valueMod < 0 && valueDiff < 0 && newValue <= minValue  && curWounds === maxWounds) {
-        woundImpact = 0;
-        newWounds = curWounds;
-        msgOutcome = `You are at death's door.<br><br>@Macro[Death Save]{Make a Death Save}`;
+        msgFlavor = `You wince from the pain.<br><br>`;
     }
     //create chat message
     macroResult = `
