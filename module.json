@@ -7,6 +7,12 @@
       "minimum": "0.8.6",
       "verified": "11"
     },
+    "authors": [
+      {
+        "name": "hollowphoton",
+        "url": "https://github.com/hollowphoton"
+      }
+    ],
     "packs": [
       {
         "label": "Player Skills (1e)",
@@ -17,8 +23,8 @@
       {
         "label": "Armor (1e)",
         "type": "Item",
-        "name": "items_armors_1e",
-        "path": "packs/items_armors_1e.db"
+        "name": "items_armor_1e",
+        "path": "packs/items_armor_1e.db"
       },
       {
         "label": "Weapons (1e)",
@@ -64,8 +70,8 @@
           "type": "system",
           "manifest": "https://raw.githubusercontent.com/Futil/foundry-mothership/master/system.json",
           "compatibility": {
-            "minimum": "0.4.00",
-            "verified": "0.4.00"
+            "minimum": "0.4.0",
+            "verified": "0.4.0"
           }
         }
       ]
