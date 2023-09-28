@@ -72,5 +72,5 @@
     },
     "url": "https://github.com/hollowphoton/fvtt_mosh_1e_psg",
     "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/archive/main.zip",
-    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/main/module.json"
+    "manifest": "https://raw.githubusercontent.com/hollowphoton/fvtt_mosh_1e_psg/main/module.json"
   }
