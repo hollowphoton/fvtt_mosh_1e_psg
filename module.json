@@ -2,71 +2,59 @@
     "id": "fvtt_mosh_1e_psg",
     "title": "Mothership 1e Compendium - PSG",
     "description": "A compendium covering everything in the Player's Survival Guide",
-    "version": "0.3.5",
+    "version": "0.3.6",
     "compatibility": {
-      "minimum": "11.308",
-      "verified": "11.308"
+      "minimum": "0.8.6",
+      "verified": "11"
     },
     "packs": [
       {
-        "label": "Player Skills",
+        "label": "Player Skills (1e)",
         "type": "Item",
-        "name": "items_skills",
-        "path": "packs/items_skills.db"
+        "name": "items_skills_1e",
+        "path": "packs/items_skills_1e.db"
       },
       {
-        "label": "Armor",
+        "label": "Armor (1e)",
         "type": "Item",
-        "name": "items_armors",
-        "path": "packs/items_armors.db"
+        "name": "items_armors_1e",
+        "path": "packs/items_armors_1e.db"
       },
       {
-        "label": "Weapons",
+        "label": "Weapons (1e)",
         "type": "Item",
-        "name": "items_weapons",
-        "path": "packs/items_weapons.db"
+        "name": "items_weapons_1e",
+        "path": "packs/items_weapons_1e.db"
       },
       {
-        "label": "Equipment",
+        "label": "Equipment (1e)",
         "type": "Item",
-        "name": "items_equipment",
-        "path": "packs/items_equipment.db"
+        "name": "items_equipment_1e",
+        "path": "packs/items_equipment_1e.db"
       },
       {
-        "label": "Patches",
+        "label": "Medical Care (1e)",
         "type": "Item",
-        "name": "items_patches",
-        "path": "packs/items_patches.db"
+        "name": "items_medical_care_1e",
+        "path": "packs/items_medical_care_1e.db"
       },
       {
-        "label": "Trinkets",
+        "label": "Patches (1e)",
         "type": "Item",
-        "name": "items_trinkets",
-        "path": "packs/items_trinkets.db"
+        "name": "items_patches_1e",
+        "path": "packs/items_patches_1e.db"
       },
       {
-        "label": "Conditions",
+        "label": "Trinkets (1e)",
         "type": "Item",
-        "name": "conditions",
-        "path": "packs/conditions.db"
+        "name": "items_trinkets_1e",
+        "path": "packs/items_trinkets_1e.db"
       },
       {
-        "label": "Rolltables",
+        "label": "Rolltables (1e)",
         "type": "RollTable",
-        "name": "rolltables",
-        "path": "packs/rolltables.db"
-      },
-      {
-        "label": "Hotbar Macros",
-        "type": "Macro",
-        "name": "macros_hotbar",
-        "path": "packs/macros_hotbar.db"
-      },
-      {
-        "label": "Triggered Macros",
-        "type": "Macro",
-        "name": "macros_triggered",
-        "path": "packs/macros_triggered.db"
+        "name": "rolltables_1e",
+        "path": "packs/rolltables_1e.db"
       }
     ],
     "relationships": {
@@ -76,13 +64,13 @@
           "type": "system",
           "manifest": "https://raw.githubusercontent.com/Futil/foundry-mothership/master/system.json",
           "compatibility": {
-            "minimum": "0.3.92",
-            "verified": "0.3.92"
+            "minimum": "0.4.00",
+            "verified": "0.4.00"
           }
         }
       ]
     },
     "url": "https://github.com/hollowphoton/fvtt_mosh_1e_psg",
-    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.5/fvtt_mosh_1e_psg.zip",
-    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.5/module.json"
+    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/archive/master.zip",
+    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/master/module.json"
   }
