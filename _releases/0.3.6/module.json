@@ -23,8 +23,8 @@
       {
         "label": "Armor (1e)",
         "type": "Item",
-        "name": "items_armors_1e",
-        "path": "packs/items_armors_1e.db"
+        "name": "items_armor_1e",
+        "path": "packs/items_armor_1e.db"
       },
       {
         "label": "Weapons (1e)",
