@@ -1,5 +1,5 @@
 ## Mothership PSG Compendium | 1e | FoundryVTT
-![image](https://github.com/hollowphoton/fvtt_mosh_1e_psg/assets/17795348/7f0090e9-46ae-4e1f-8243-c573787cd5b2)
+![image](https://github.com/hollowphoton/fvtt_mosh_1e_psg/assets/17795348/a1abe5c5-94d0-4d4f-9581-ac2c0fded6b0)
 
 #### Features
 - 6 Pet Skills
