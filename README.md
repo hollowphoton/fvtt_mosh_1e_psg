@@ -1,14 +1,21 @@
 ## Mothership PSG Compendium | 1e | FoundryVTT
-![image](https://github.com/hollowphoton/fvtt_mosh_1e_psg/assets/17795348/a1abe5c5-94d0-4d4f-9581-ac2c0fded6b0)
+![image](https://github.com/hollowphoton/fvtt_mosh_1e_psg/assets/17795348/a785e4c4-acf5-4fba-bb9b-96dd3a0c0876)
+This is a module I've created for use in my own personal Mothership game. It contains everything I found relevant in the 1e Player's Survival Guide.
 
 #### Features
-- 6 Pet Skills
-- 18 Pets
+- Player Skills
+- Armor
+- Weapons
+- Equipment
+- Trinkets
+- Patches
+- Medical Care
+- Rolltables (Loadouts, Trinkets, Patches)
 
 #### Installation
  1. Load up Foundry VTT and go to the Add-On Modules tab
  2. Click Install Module
- 3. Paste this URL into the Manifest URL field: https://github.com/hollowphoton/fvtt_mosh_1e_terminal/releases/latest/download/module.json
+ 3. Paste this URL into the Manifest URL field: https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/latest/download/module.json
  4. Hit Install
  5. In a world that uses the unofficial MoSh system, go to Settings
  6. Click on Manage Modules
