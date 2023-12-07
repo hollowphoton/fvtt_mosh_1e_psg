@@ -1,0 +1,82 @@
+{
+    "id": "fvtt_mosh_1e_psg",
+    "title": "Mothership 1e Compendium - PSG",
+    "description": "A compendium covering everything in the Player's Survival Guide",
+    "version": "0.3.9",
+    "compatibility": {
+      "minimum": "0.8.6",
+      "verified": "11"
+    },
+    "authors": [
+      {
+        "name": "hollowphoton",
+        "url": "https://github.com/hollowphoton"
+      }
+    ],
+    "packs": [
+      {
+        "label": "Player Skills (1e)",
+        "type": "Item",
+        "name": "items_skills_1e",
+        "path": "packs/items_skills_1e.db"
+      },
+      {
+        "label": "Armor (1e)",
+        "type": "Item",
+        "name": "items_armor_1e",
+        "path": "packs/items_armor_1e.db"
+      },
+      {
+        "label": "Weapons (1e)",
+        "type": "Item",
+        "name": "items_weapons_1e",
+        "path": "packs/items_weapons_1e.db"
+      },
+      {
+        "label": "Equipment (1e)",
+        "type": "Item",
+        "name": "items_equipment_1e",
+        "path": "packs/items_equipment_1e.db"
+      },
+      {
+        "label": "Medical Care (1e)",
+        "type": "Item",
+        "name": "items_medical_care_1e",
+        "path": "packs/items_medical_care_1e.db"
+      },
+      {
+        "label": "Patches (1e)",
+        "type": "Item",
+        "name": "items_patches_1e",
+        "path": "packs/items_patches_1e.db"
+      },
+      {
+        "label": "Trinkets (1e)",
+        "type": "Item",
+        "name": "items_trinkets_1e",
+        "path": "packs/items_trinkets_1e.db"
+      },
+      {
+        "label": "Rolltables (1e)",
+        "type": "RollTable",
+        "name": "rolltables_1e",
+        "path": "packs/rolltables_1e.db"
+      }
+    ],
+    "relationships": {
+      "systems": [
+        {
+          "id": "mosh",
+          "type": "system",
+          "manifest": "https://raw.githubusercontent.com/Futil/foundry-mothership/master/system.json",
+          "compatibility": {
+            "minimum": "0.4.0",
+            "verified": "0.4.0"
+          }
+        }
+      ]
+    },
+    "url": "https://github.com/hollowphoton/fvtt_mosh_1e_psg",
+    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/latest/download/module.json",
+    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.9/fvtt_mosh_1e_psg.zip"
+  }
