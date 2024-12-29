@@ -1,0 +1,88 @@
+{
+    "id": "fvtt_mosh_1e_psg",
+    "title": "Mothership 1e Compendium - PSG",
+    "description": "A compendium covering everything in the Player's Survival Guide",
+    "version": "0.3.12",
+    "compatibility": {
+      "minimum": "11",
+      "verified": "12"
+    },
+    "authors": [
+      {
+        "name": "hollowphoton",
+        "url": "https://github.com/hollowphoton"
+      }
+    ],
+    "packs": [
+      {
+        "label": "Classes (1e)",
+        "type": "Item",
+        "name": "items_classes_1e",
+        "path": "packs/items_classes_1e.db"
+      },
+      {
+        "label": "Player Skills (1e)",
+        "type": "Item",
+        "name": "items_skills_1e",
+        "path": "packs/items_skills_1e.db"
+      },
+      {
+        "label": "Armor (1e)",
+        "type": "Item",
+        "name": "items_armor_1e",
+        "path": "packs/items_armor_1e.db"
+      },
+      {
+        "label": "Weapons (1e)",
+        "type": "Item",
+        "name": "items_weapons_1e",
+        "path": "packs/items_weapons_1e.db"
+      },
+      {
+        "label": "Equipment (1e)",
+        "type": "Item",
+        "name": "items_equipment_1e",
+        "path": "packs/items_equipment_1e.db"
+      },
+      {
+        "label": "Medical Care (1e)",
+        "type": "Item",
+        "name": "items_medical_care_1e",
+        "path": "packs/items_medical_care_1e.db"
+      },
+      {
+        "label": "Patches (1e)",
+        "type": "Item",
+        "name": "items_patches_1e",
+        "path": "packs/items_patches_1e.db"
+      },
+      {
+        "label": "Trinkets (1e)",
+        "type": "Item",
+        "name": "items_trinkets_1e",
+        "path": "packs/items_trinkets_1e.db"
+      },
+      {
+        "label": "Rolltables (1e)",
+        "type": "RollTable",
+        "name": "rolltables_1e",
+        "path": "packs/rolltables_1e.db"
+      }
+    ],
+    "relationships": {
+      "systems": [
+        {
+          "id": "mosh",
+          "type": "system",
+          "manifest": "https://raw.githubusercontent.com/Futil/foundry-mothership/master/system.json",
+          "compatibility": {
+            "minimum": "0.5.25",
+            "verified": "0.5.25"
+          }
+        }
+      ]
+    },
+    "url": "https://github.com/hollowphoton/fvtt_mosh_1e_psg",
+    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.12/module.json",
+    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.12/fvtt_mosh_1e_psg.zip"
+  }
