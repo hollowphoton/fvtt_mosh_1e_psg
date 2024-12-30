@@ -4,7 +4,6 @@
 This is a module I've created for use in my own personal Mothership game. It contains everything I found relevant in the 1e Player's Survival Guide.
 
 #### Features
-- Classes
 - Player Skills
 - Armor
 - Weapons
