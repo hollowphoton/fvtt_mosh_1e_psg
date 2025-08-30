@@ -2,10 +2,10 @@
     "id": "fvtt_mosh_1e_psg",
     "title": "Mothership 1e Compendium - PSG",
     "description": "A compendium covering everything in the Player's Survival Guide",
-    "version": "0.3.14",
+    "version": "0.3.15",
     "compatibility": {
       "minimum": "11",
-      "verified": "12"
+      "verified": "13"
     },
     "authors": [
       {
@@ -77,12 +77,12 @@
           "manifest": "https://raw.githubusercontent.com/Futil/foundry-mothership/master/system.json",
           "compatibility": {
             "minimum": "0.5.25",
-            "verified": "0.5.25"
+            "verified": "0.6.0"
           }
         }
       ]
     },
     "url": "https://github.com/hollowphoton/fvtt_mosh_1e_psg",
-    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.14/module.json",
-    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.14/fvtt_mosh_1e_psg.zip"
+    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.15/module.json",
+    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.15/fvtt_mosh_1e_psg.zip"
   }
