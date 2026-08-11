@@ -1,0 +1,113 @@
+{
+    "id": "fvtt_mosh_1e_psg",
+    "title": "Mothership 1e Compendium - PSG",
+    "description": "A compendium covering everything in the Player's Survival Guide",
+    "version": "0.3.17",
+    "compatibility": {
+      "minimum": "14",
+      "verified": "14"
+    },
+    "authors": [
+      {
+        "name": "hollowphoton",
+        "url": "https://github.com/hollowphoton"
+      }
+    ],
+    "packs": [
+      {
+        "label": "Classes (1e)",
+        "type": "Item",
+        "system": "mosh",
+        "name": "items_classes_1e",
+        "path": "packs/items_classes_1e"
+      },
+      {
+        "label": "Player Skills (1e)",
+        "type": "Item",
+        "system": "mosh",
+        "name": "items_skills_1e",
+        "path": "packs/items_skills_1e"
+      },
+      {
+        "label": "Armor (1e)",
+        "type": "Item",
+        "system": "mosh",
+        "name": "items_armor_1e",
+        "path": "packs/items_armor_1e"
+      },
+      {
+        "label": "Weapons (1e)",
+        "type": "Item",
+        "system": "mosh",
+        "name": "items_weapons_1e",
+        "path": "packs/items_weapons_1e"
+      },
+      {
+        "label": "Equipment (1e)",
+        "type": "Item",
+        "system": "mosh",
+        "name": "items_equipment_1e",
+        "path": "packs/items_equipment_1e"
+      },
+      {
+        "label": "Medical Care (1e)",
+        "type": "Item",
+        "system": "mosh",
+        "name": "items_medical_care_1e",
+        "path": "packs/items_medical_care_1e"
+      },
+      {
+        "label": "Patches (1e)",
+        "type": "Item",
+        "system": "mosh",
+        "name": "items_patches_1e",
+        "path": "packs/items_patches_1e"
+      },
+      {
+        "label": "Trinkets (1e)",
+        "type": "Item",
+        "system": "mosh",
+        "name": "items_trinkets_1e",
+        "path": "packs/items_trinkets_1e"
+      },
+      {
+        "label": "Rolltables (1e)",
+        "type": "RollTable",
+        "name": "rolltables_1e",
+        "path": "packs/rolltables_1e"
+      }
+    ],
+    "packFolders": [
+      {
+        "name": "Mothership 1e - PSG",
+        "sorting": "m",
+        "packs": [
+          "items_classes_1e",
+          "items_skills_1e",
+          "items_armor_1e",
+          "items_weapons_1e",
+          "items_equipment_1e",
+          "items_medical_care_1e",
+          "items_patches_1e",
+          "items_trinkets_1e",
+          "rolltables_1e"
+        ]
+      }
+    ],
+    "relationships": {
+      "systems": [
+        {
+          "id": "mosh",
+          "type": "system",
+          "manifest": "https://raw.githubusercontent.com/Futil/foundry-mothership/master/system.json",
+          "compatibility": {
+            "minimum": "0.6.1",
+            "verified": "0.6.1"
+          }
+        }
+      ]
+    },
+    "url": "https://github.com/hollowphoton/fvtt_mosh_1e_psg",
+    "manifest": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.17/module.json",
+    "download": "https://github.com/hollowphoton/fvtt_mosh_1e_psg/releases/download/0.3.17/fvtt_mosh_1e_psg.zip"
+  }
